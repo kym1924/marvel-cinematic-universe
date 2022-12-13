@@ -1,0 +1,71 @@
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin)
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.navigation.safe.args)
+    alias(libs.plugins.ktlint)
+}
+
+android {
+    namespace 'com.kimym.marvel'
+    compileSdk config.compileSdk
+
+    defaultConfig {
+        applicationId "com.kimym.marvel"
+        minSdk config.minSdk
+        targetSdk config.targetSdk
+        versionCode config.versionCode
+        versionName config.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+dependencies {
+
+    implementation(libs.androidx.core)
+    implementation(libs.androidx.app.compat)
+    implementation(libs.androidx.app.startup)
+    implementation(libs.androidx.constraint.layout)
+    implementation(libs.androidx.fragment)
+    implementation(libs.androidx.navigation)
+    implementation(libs.androidx.navigation.ui)
+    implementation(libs.androidx.room)
+    implementation(libs.androidx.room.runtime)
+    kapt(libs.androidx.room.compiler)
+    implementation(libs.androidx.workmanager)
+    implementation(libs.androidx.hilt.workmanager)
+    kapt(libs.androidx.hilt.compiler)
+
+    implementation(libs.gson)
+    implementation(libs.hilt)
+    kapt(libs.hilt.compiler)
+    implementation(libs.material)
+
+    implementation(libs.glide)
+    kapt(libs.glide.compiler)
+    implementation(libs.timber)
+
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso)
+
+}

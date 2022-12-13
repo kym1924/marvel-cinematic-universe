@@ -1,0 +1,62 @@
+[versions]
+gradlePlugin = "7.3.1"
+kotlin = "1.7.22"
+ktlint = "11.0.0"
+
+androidxCore = "1.9.0"
+androidxAppcompat = "1.5.1"
+androidxAppStartup = "1.1.1"
+androidxConstraintLayout = "2.1.4"
+androidxFragment = "1.5.5"
+androidxNavigation = "2.5.3"
+androidxRoom = "2.4.3"
+androidxWorkManager = "2.7.1"
+androidxHiltWorkManager = "1.0.0"
+
+gson = "2.10"
+hilt = "2.44.2"
+material = "1.7.0"
+
+glide = "4.14.2"
+timber = "5.0.1"
+
+junit = "4.13.2"
+testJunit = "1.1.4"
+testEspresso = "3.5.0"
+
+[libraries]
+androidx-core = { module = "androidx.core:core-ktx", version.ref = "androidxCore" }
+androidx-app-compat = { module = "androidx.appcompat:appcompat", version.ref = "androidxAppcompat" }
+androidx-app-startup = { module = "androidx.startup:startup-runtime", version.ref = "androidxAppStartup" }
+androidx-constraint-layout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "androidxConstraintLayout" }
+androidx-fragment = { module = "androidx.fragment:fragment-ktx", version.ref = "androidxFragment" }
+androidx-navigation = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "androidxNavigation" }
+androidx-navigation-ui = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "androidxNavigation" }
+androidx-room = { module = "androidx.room:room-ktx", version.ref = "androidxRoom" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "androidxRoom" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "androidxRoom" }
+androidx-workmanager = { module = "androidx.work:work-runtime-ktx", version.ref = "androidxWorkManager" }
+androidx-hilt-workmanager = { module = "androidx.hilt:hilt-work", version.ref = "androidxHiltWorkManager" }
+androidx-hilt-compiler = { module = "androidx.hilt:hilt-compiler", version.ref = "androidxHiltWorkManager" }
+
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+hilt = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
+material = { module = "com.google.android.material:material", version.ref = "material" }
+
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
+timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
+
+junit = { module = "junit:junit", version.ref = "junit" }
+androidx-junit = { module = "androidx.test.ext:junit", version.ref = "testJunit" }
+androidx-espresso = { module = "androidx.test.espresso:espresso-core", version.ref = "testEspresso" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "gradlePlugin" }
+android-library = { id = "com.android.library", version.ref = "gradlePlugin" }
+kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+navigation-safe-args = { id = "androidx.navigation.safeargs.kotlin", version.ref = "androidxNavigation" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
