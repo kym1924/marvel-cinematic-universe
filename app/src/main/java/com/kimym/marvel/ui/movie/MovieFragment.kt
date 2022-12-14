@@ -20,6 +20,15 @@ class MovieFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initRecyclerView()
+    }
+
+    private fun initRecyclerView() {
+        binding.rvMovie.also { it.setHasFixedSize(true) }.adapter = MovieAdapter()
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
