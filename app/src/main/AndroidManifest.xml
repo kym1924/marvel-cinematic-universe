@@ -32,6 +32,10 @@
             <meta-data
                 android:name="com.kimym.marvel.initializer.TimberInitializer"
                 android:value="androidx.startup" />
+            <meta-data
+                android:name="androidx.work.WorkManagerInitializer"
+                android:value="androidx.startup"
+                tools:node="remove" />
         </provider>
 
     </application>
