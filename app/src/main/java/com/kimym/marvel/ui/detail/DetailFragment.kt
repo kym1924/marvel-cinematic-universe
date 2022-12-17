@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.kimym.marvel.databinding.FragmentDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -40,6 +41,7 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initMovieCollect()
+        initToolbarNavigationClickListener()
     }
 
     private fun initMovieCollect() {
@@ -50,6 +52,12 @@ class DetailFragment : Fragment() {
                     binding.executePendingBindings()
                 }
             }
+        }
+    }
+
+    private fun initToolbarNavigationClickListener() {
+        binding.toolbarDetail.setNavigationOnClickListener {
+            findNavController().popBackStack()
         }
     }
 

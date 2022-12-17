@@ -20,7 +20,7 @@
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/app_bar_detail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="600dp"
             android:background="?attr/colorSurface"
             android:fitsSystemWindows="true">
 
@@ -48,7 +48,8 @@
                     android:id="@+id/toolbar_detail"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    app:layout_collapseMode="pin" />
+                    app:layout_collapseMode="pin"
+                    app:navigationIcon="@drawable/ic_back_32" />
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -96,8 +97,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="20dp"
-                    android:text="@{movie.content}"
                     android:layout_marginTop="20dp"
+                    android:text="@{movie.content}"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
