@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -12,6 +13,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.snackbar.Snackbar
 import com.kimym.marvel.databinding.FragmentDetailBinding
 import com.kimym.marvel.util.NavigateCallback
 import dagger.hilt.android.AndroidEntryPoint
@@ -45,6 +47,7 @@ class DetailFragment : Fragment() {
         initNavigateCallback()
         initMovieCollect()
         initToolbarNavigationClickListener()
+        initFragmentResultListener()
     }
 
     private fun initNavigateCallback() {
@@ -71,6 +74,13 @@ class DetailFragment : Fragment() {
     private fun initToolbarNavigationClickListener() {
         binding.toolbarDetail.setNavigationOnClickListener {
             findNavController().popBackStack()
+        }
+    }
+
+    private fun initFragmentResultListener() {
+        setFragmentResultListener("rating") { _, bundle ->
+            viewModel.insertRating(bundle.getFloat("rating"))
+            Snackbar.make(binding.root, "Star ratings are saved.", Snackbar.LENGTH_SHORT).show()
         }
     }
 
