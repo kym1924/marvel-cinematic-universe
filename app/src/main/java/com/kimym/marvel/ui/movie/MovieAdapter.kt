@@ -1,12 +1,16 @@
 package com.kimym.marvel.ui.movie
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.kimym.marvel.NavGraphDirections
 import com.kimym.marvel.database.model.Movie
 import com.kimym.marvel.databinding.ItemMovieBinding
+import com.kimym.marvel.util.NavigateCallback
 
 class MovieAdapter : ListAdapter<Movie, MovieAdapter.MovieViewHolder>(
     object : DiffUtil.ItemCallback<Movie>() {
@@ -33,7 +37,18 @@ class MovieAdapter : ListAdapter<Movie, MovieAdapter.MovieViewHolder>(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(model: Movie) {
             binding.model = model
+            binding.callback = callback
             binding.executePendingBindings()
+        }
+
+        companion object {
+            val callback = object : NavigateCallback {
+                override fun navigate(view: View, title: String) {
+                    val directions = NavGraphDirections
+                    val action = directions.actionGlobalDetailFragment(title)
+                    view.findNavController().navigate(action)
+                }
+            }
         }
     }
 }

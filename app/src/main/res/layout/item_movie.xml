@@ -9,6 +9,10 @@
             name="model"
             type="com.kimym.marvel.database.model.Movie" />
 
+        <variable
+            name="callback"
+            type="com.kimym.marvel.util.NavigateCallback" />
+        
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -16,6 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="12dp"
         android:layout_marginBottom="24dp"
+        android:onClick="@{(view) -> callback.navigate(view, model.title)}"
         app:cardCornerRadius="12dp"
         app:cardElevation="2dp"
         app:cardPreventCornerOverlap="false">
