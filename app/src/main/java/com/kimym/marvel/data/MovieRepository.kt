@@ -5,4 +5,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface MovieRepository {
     fun getMovies(): Flow<List<Movie>>
+
+    fun getMoviesByPhase(phase: Int): Flow<List<Movie>>
 }

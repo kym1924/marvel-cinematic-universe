@@ -14,4 +14,8 @@ class MovieRepositoryImpl @Inject constructor(
     override fun getMovies(): Flow<List<Movie>> {
         return dao.getMovies().flowOn(ioDispatcher)
     }
+
+    override fun getMoviesByPhase(phase: Int): Flow<List<Movie>> {
+        return dao.getMoviesByPhase(phase).flowOn(ioDispatcher)
+    }
 }
