@@ -27,10 +27,26 @@
         android:label="DetailFragment"
         tools:layout="@layout/fragment_detail">
 
+        <action
+            android:id="@+id/action_detailFragment_to_ratingDialog"
+            app:destination="@id/ratingDialog" />
+
         <argument
             android:name="title"
-            app:argType="string"/>
+            app:argType="string" />
 
     </fragment>
+
+    <dialog
+        android:id="@+id/ratingDialog"
+        android:name="com.kimym.marvel.ui.rating.RatingDialog"
+        android:label="RatingDialog"
+        tools:layout="@layout/dialog_rating">
+
+        <argument
+            android:name="title"
+            app:argType="string" />
+
+    </dialog>
 
 </navigation>
