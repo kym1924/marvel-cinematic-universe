@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.kimym.marvel.database.model.Movie
+import com.kimym.marvel.database.model.Rating
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -12,6 +13,9 @@ interface MarvelDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMovies(movies: List<Movie>)
 
+    @Insert
+    suspend fun insertRating(rating: Rating)
+    
     @Query("SELECT * FROM Movie")
     fun getMovies(): Flow<List<Movie>>
 
