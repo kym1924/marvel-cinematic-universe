@@ -17,4 +17,20 @@
         android:label="FavoriteFragment"
         tools:layout="@layout/fragment_favorite" />
 
+    <action
+        android:id="@+id/action_global_detailFragment"
+        app:destination="@id/detailFragment" />
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.kimym.marvel.ui.detail.DetailFragment"
+        android:label="DetailFragment"
+        tools:layout="@layout/fragment_detail">
+
+        <argument
+            android:name="title"
+            app:argType="string"/>
+
+    </fragment>
+
 </navigation>
