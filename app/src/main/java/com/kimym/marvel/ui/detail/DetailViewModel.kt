@@ -15,6 +15,8 @@ class DetailViewModel @AssistedInject constructor(
 ) : ViewModel() {
     val movie = repository.getMovie(title)
 
+    val isFavorite = repository.isFavorite(title)
+
     fun insertRating(rating: Float) {
         viewModelScope.launch {
             repository.insertRating(title, rating)
