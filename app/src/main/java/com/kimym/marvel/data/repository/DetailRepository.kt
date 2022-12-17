@@ -6,5 +6,7 @@ import kotlinx.coroutines.flow.Flow
 interface DetailRepository {
     fun getMovie(title: String): Flow<Movie>
 
+    fun isFavorite(title: String): Flow<Boolean>
+
     suspend fun insertRating(title: String, rating: Float)
 }
