@@ -3,6 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="movie"
+            type="com.kimym.marvel.database.model.Movie" />
+
+    </data>
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -33,7 +41,8 @@
                     android:contentDescription="Image of Marvel Movie"
                     android:fitsSystemWindows="true"
                     android:scaleType="fitXY"
-                    app:layout_collapseMode="parallax" />
+                    app:layout_collapseMode="parallax"
+                    app:setImageWithUrl="@{movie.image}" />
 
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar_detail"
@@ -61,6 +70,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:gravity="center"
+                    android:text="@{movie.title}"
                     android:textAppearance="?attr/textAppearanceHeadline5"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -74,6 +84,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="12dp"
+                    android:text="@{movie.release + ` / ` + movie.runningTime +` min`}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintStart_toStartOf="parent"
@@ -85,6 +96,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="20dp"
+                    android:text="@{movie.content}"
                     android:layout_marginTop="20dp"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     app:layout_constraintEnd_toEndOf="parent"
