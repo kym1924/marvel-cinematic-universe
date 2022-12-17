@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/filter_phase_all"
+        android:title="All" />
+
+    <item
+        android:id="@+id/filter_phase_1"
+        android:title="Phase 1" />
+
+    <item
+        android:id="@+id/filter_phase_2"
+        android:title="Phase 2" />
+
+    <item
+        android:id="@+id/filter_phase_3"
+        android:title="Phase 3" />
+
+    <item
+        android:id="@+id/filter_phase_4"
+        android:title="Phase 4" />
+
+</menu>
