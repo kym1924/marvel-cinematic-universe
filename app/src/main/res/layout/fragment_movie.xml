@@ -28,8 +28,9 @@
                     android:id="@+id/toolbar_movie"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    app:title="Marvel Cinematic Universe"
-                    app:layout_collapseMode="parallax" />
+                    app:layout_collapseMode="parallax"
+                    app:menu="@menu/menu_phase_filter"
+                    app:title="Marvel Cinematic Universe" />
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -46,7 +47,7 @@
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             app:spanCount="2"
-            tools:listitem="@layout/item_movie"/>
+            tools:listitem="@layout/item_movie" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

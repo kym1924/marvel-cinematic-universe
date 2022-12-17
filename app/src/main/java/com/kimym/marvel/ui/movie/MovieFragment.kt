@@ -32,6 +32,7 @@ class MovieFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
         initMoviesCollect()
+        initToolbarMenuClickListener()
     }
 
     private fun initRecyclerView() {
@@ -45,6 +46,13 @@ class MovieFragment : Fragment() {
                     (binding.rvMovie.adapter as MovieAdapter).submitList(list)
                 }
             }
+        }
+    }
+
+    private fun initToolbarMenuClickListener() {
+        binding.toolbarMovie.setOnMenuItemClickListener { menu ->
+            viewModel.setPhase(menu.itemId)
+            true
         }
     }
 
