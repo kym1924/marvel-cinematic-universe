@@ -17,4 +17,7 @@ interface MarvelDao {
 
     @Query("SELECT * FROM Movie WHERE phase = :phase")
     fun getMoviesByPhase(phase: Int): Flow<List<Movie>>
+
+    @Query("SELECT * FROM Movie WHERE title = :title")
+    fun getMovie(title: String): Flow<Movie>
 }
