@@ -1,7 +1,7 @@
 package com.kimym.marvel.di
 
-import com.kimym.marvel.data.MovieRepository
-import com.kimym.marvel.data.MovieRepositoryImpl
+import com.kimym.marvel.data.repository.MovieRepository
+import com.kimym.marvel.data.repository.MovieRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

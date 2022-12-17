@@ -2,8 +2,8 @@ package com.kimym.marvel.ui.movie
 
 import androidx.annotation.MenuRes
 import androidx.lifecycle.ViewModel
-import com.kimym.marvel.data.MovieRepository
 import com.kimym.marvel.data.model.Phase
+import com.kimym.marvel.data.repository.MovieRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow

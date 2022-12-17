@@ -1,4 +1,4 @@
-package com.kimym.marvel.data
+package com.kimym.marvel.data.repository
 
 import com.kimym.marvel.database.MarvelDao
 import com.kimym.marvel.database.model.Movie
