@@ -1,5 +1,7 @@
 package com.kimym.marvel.di
 
+import com.kimym.marvel.data.repository.DetailRepository
+import com.kimym.marvel.data.repository.DetailRepositoryImpl
 import com.kimym.marvel.data.repository.MovieRepository
 import com.kimym.marvel.data.repository.MovieRepositoryImpl
 import dagger.Binds
@@ -16,4 +18,10 @@ abstract class RepositoryModule {
     abstract fun bindMovieRepository(
         movieRepositoryImpl: MovieRepositoryImpl
     ): MovieRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindDetailRepository(
+        detailRepositoryImpl: DetailRepositoryImpl
+    ): DetailRepository
 }
