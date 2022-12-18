@@ -1,7 +1,7 @@
 package com.kimym.marvel.data.repository
 
+import com.kimym.marvel.data.model.MovieBasicInfo
 import com.kimym.marvel.database.MarvelDao
-import com.kimym.marvel.database.model.Movie
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
@@ -11,11 +11,11 @@ class MovieRepositoryImpl @Inject constructor(
     private val dao: MarvelDao,
     private val ioDispatcher: CoroutineDispatcher
 ) : MovieRepository {
-    override fun getMovies(): Flow<List<Movie>> {
+    override fun getMovies(): Flow<List<MovieBasicInfo>> {
         return dao.getMovies().flowOn(ioDispatcher)
     }
 
-    override fun getMoviesByPhase(phase: Int): Flow<List<Movie>> {
+    override fun getMoviesByPhase(phase: Int): Flow<List<MovieBasicInfo>> {
         return dao.getMoviesByPhase(phase).flowOn(ioDispatcher)
     }
 }
