@@ -7,9 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -17,7 +14,6 @@ import com.google.android.material.snackbar.Snackbar
 import com.kimym.marvel.databinding.FragmentDetailBinding
 import com.kimym.marvel.util.NavigateCallback
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -38,36 +34,29 @@ class DetailFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentDetailBinding.inflate(inflater, container, false)
+        _binding = FragmentDetailBinding.inflate(inflater, container, false).apply {
+            lifecycleOwner = viewLifecycleOwner
+        }
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initNavigateCallback()
-        initMovieCollect()
+        initBindingVariables()
         initToolbarNavigationClickListener()
         initFragmentResultListener()
     }
 
-    private fun initNavigateCallback() {
-        binding.callback = object : NavigateCallback {
-            override fun navigate(view: View, title: String) {
-                val action = DetailFragmentDirections.actionDetailFragmentToRatingDialog(title)
-                view.findNavController().navigate(action)
-            }
-        }
-        binding.executePendingBindings()
-    }
-
-    private fun initMovieCollect() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.movie.collect {
-                    binding.movie = it
-                    binding.executePendingBindings()
+    private fun initBindingVariables() {
+        with(binding) {
+            viewModel = this@DetailFragment.viewModel
+            callback = object : NavigateCallback {
+                override fun navigate(view: View, title: String) {
+                    val action = DetailFragmentDirections.actionDetailFragmentToRatingDialog(title)
+                    view.findNavController().navigate(action)
                 }
             }
+            executePendingBindings()
         }
     }
 
