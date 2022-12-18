@@ -7,7 +7,11 @@
 
         <variable
             name="model"
-            type="com.kimym.marvel.database.model.Rating" />
+            type="com.kimym.marvel.data.model.MovieAndRating" />
+
+        <variable
+            name="callback"
+            type="com.kimym.marvel.util.NavigateCallback" />
 
     </data>
 
@@ -16,6 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="12dp"
         android:layout_marginBottom="24dp"
+        android:onClick="@{(view) -> callback.navigate(view, model.title)}"
         app:cardCornerRadius="12dp"
         app:cardElevation="2dp"
         app:cardPreventCornerOverlap="false">
@@ -33,7 +38,8 @@
                 app:layout_constraintDimensionRatio="1:1.5"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:setImageWithUrl="@{model.image}" />
 
             <TextView
                 android:id="@+id/tv_favorite_title"
@@ -41,6 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:gravity="center"
+                android:text="@{model.title}"
                 android:textAppearance="?attr/textAppearanceListItem"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -57,6 +64,7 @@
                 android:isIndicator="true"
                 android:numStars="5"
                 android:progressTint="@color/yellow_500"
+                android:rating="@{model.rating}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
