@@ -1,7 +1,6 @@
 package com.kimym.marvel.ui.movie
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
@@ -42,10 +41,9 @@ class MovieAdapter : ListAdapter<Movie, MovieAdapter.MovieViewHolder>(
         }
 
         companion object {
-            val callback = object : NavigateCallback {
-                override fun navigate(view: View, title: String) {
-                    val directions = NavGraphDirections
-                    val action = directions.actionGlobalDetailFragment(title)
+            val callback = NavigateCallback { view, title ->
+                title?.let {
+                    val action = NavGraphDirections.actionGlobalDetailFragment(title)
                     view.findNavController().navigate(action)
                 }
             }
