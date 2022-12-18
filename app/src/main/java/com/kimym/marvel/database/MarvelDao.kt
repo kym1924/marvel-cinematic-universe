@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.kimym.marvel.data.model.MovieBasicInfo
+import com.kimym.marvel.data.model.MovieDetailInfo
 import com.kimym.marvel.database.model.Movie
 import com.kimym.marvel.database.model.Rating
 import kotlinx.coroutines.flow.Flow
@@ -23,8 +24,8 @@ interface MarvelDao {
     @Query("SELECT id, title, image FROM Movie WHERE phase = :phase")
     fun getMoviesByPhase(phase: Int): Flow<List<MovieBasicInfo>>
 
-    @Query("SELECT * FROM Movie WHERE title = :title")
-    fun getMovie(title: String): Flow<Movie>
+    @Query("SELECT id, title, content, `release`, running_time AS runningTime, image FROM Movie WHERE title = :title")
+    fun getMovie(title: String): Flow<MovieDetailInfo>
 
     @Query("SELECT EXISTS(SELECT 1 FROM Rating WHERE title = :title)")
     fun getIsFavorite(title: String): Flow<Boolean>
