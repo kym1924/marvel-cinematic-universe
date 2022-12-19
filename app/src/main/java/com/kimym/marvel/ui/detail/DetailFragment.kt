@@ -49,7 +49,7 @@ class DetailFragment : Fragment() {
 
     private fun initBindingVariables() {
         with(binding) {
-            viewModel = this@DetailFragment.viewModel
+            vm = viewModel
             callback = NavigateCallback { view, title ->
                 title?.let {
                     val action = DetailFragmentDirections.actionDetailFragmentToRatingDialog(title)
