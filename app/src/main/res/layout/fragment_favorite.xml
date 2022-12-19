@@ -3,6 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.kimym.marvel.ui.favorite.FavoriteViewModel" />
+
+        <variable
+            name="adapter"
+            type="com.kimym.marvel.ui.favorite.FavoriteAdapter" />
+
+    </data>
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -43,9 +57,12 @@
             android:overScrollMode="never"
             android:paddingHorizontal="12dp"
             android:paddingTop="24dp"
+            android:visibility="@{vm.favorites.empty ? View.GONE : View.VISIBLE, default = gone}"
+            app:initRvFavorite="@{adapter}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             app:spanCount="2"
+            app:submitFavorites="@{vm.favorites}"
             tools:listitem="@layout/item_favorite" />
 
         <TextView
@@ -54,8 +71,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="There are not\nfavorite Marvel movies."
-            android:textAppearance="?attr/textAppearanceBody1" />
+            android:text="Favorites are empty."
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:textStyle="bold"
+            android:visibility="@{vm.favorites.empty ? View.VISIBLE : View.GONE, default = gone}" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
