@@ -21,12 +21,12 @@ fun RecyclerView.init(adapter: FavoriteAdapter) {
 
 @BindingAdapter("submitMovies")
 fun RecyclerView.submitMovies(movies: List<MovieBasicInfo>) {
-    (adapter as MovieAdapter).submitList(movies)
+    (adapter as? MovieAdapter)?.submitList(movies)
 }
 
 @BindingAdapter("submitFavorites")
 fun RecyclerView.submitFavorites(favorites: List<MovieAndRating>) {
-    (adapter as FavoriteAdapter).submitList(favorites)
+    (adapter as? FavoriteAdapter)?.submitList(favorites)
 }
 
 @BindingAdapter("setImageWithUrl")
