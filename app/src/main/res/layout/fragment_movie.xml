@@ -3,6 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="vm"
+            type="com.kimym.marvel.ui.movie.MovieViewModel" />
+
+        <variable
+            name="adapter"
+            type="com.kimym.marvel.ui.movie.MovieAdapter" />
+
+    </data>
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -30,7 +42,8 @@
                     android:layout_height="?attr/actionBarSize"
                     app:layout_collapseMode="parallax"
                     app:menu="@menu/menu_phase_filter"
-                    app:title="Marvel Cinematic Universe" />
+                    app:title="@{`Marvel Cinematic Universe ` + vm.phase.str}"
+                    tools:title="Marvel Cinematic Universe" />
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -44,9 +57,11 @@
             android:overScrollMode="never"
             android:paddingHorizontal="12dp"
             android:paddingTop="24dp"
+            app:initRvMovie="@{adapter}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             app:spanCount="2"
+            app:submitMovies="@{vm.movies}"
             tools:listitem="@layout/item_movie" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
