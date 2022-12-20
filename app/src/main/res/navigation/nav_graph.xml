@@ -19,7 +19,11 @@
 
     <action
         android:id="@+id/action_global_detailFragment"
-        app:destination="@id/detailFragment" />
+        app:destination="@id/detailFragment"
+        app:enterAnim="@anim/enter_from_right"
+        app:exitAnim="@anim/exit_to_left"
+        app:popEnterAnim="@anim/enter_from_left"
+        app:popExitAnim="@anim/exit_to_right" />
 
     <fragment
         android:id="@+id/detailFragment"
