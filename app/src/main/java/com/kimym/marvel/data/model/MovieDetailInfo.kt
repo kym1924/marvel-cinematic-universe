@@ -5,6 +5,6 @@ data class MovieDetailInfo(
     val title: String,
     val content: String,
     val release: String,
-    val runningTime: String,
+    val runningTime: Int,
     val image: String
 )
