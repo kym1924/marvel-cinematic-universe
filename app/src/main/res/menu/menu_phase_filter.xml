@@ -3,22 +3,22 @@
 
     <item
         android:id="@+id/filter_phase_all"
-        android:title="All" />
+        android:title="@string/all" />
 
     <item
         android:id="@+id/filter_phase_1"
-        android:title="Phase 1" />
+        android:title="@string/phase_1" />
 
     <item
         android:id="@+id/filter_phase_2"
-        android:title="Phase 2" />
+        android:title="@string/phase_2" />
 
     <item
         android:id="@+id/filter_phase_3"
-        android:title="Phase 3" />
+        android:title="@string/phase_3" />
 
     <item
         android:id="@+id/filter_phase_4"
-        android:title="Phase 4" />
+        android:title="@string/phase_4" />
 
 </menu>

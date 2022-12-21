@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="Favorites are empty."
+            android:text="@string/favorites_empty"
             android:textAppearance="?attr/textAppearanceBody1"
             android:textStyle="bold"
             android:visibility="@{vm.favorites.empty ? View.VISIBLE : View.GONE, default = gone}" />

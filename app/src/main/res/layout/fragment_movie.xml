@@ -42,7 +42,7 @@
                     android:layout_height="?attr/actionBarSize"
                     app:layout_collapseMode="parallax"
                     app:menu="@menu/menu_phase_filter"
-                    app:title="@{`Marvel Cinematic Universe ` + vm.phase.str}"
+                    app:title="@{@string/movie_toolbar_title(vm.phase.str)}"
                     tools:title="Marvel Cinematic Universe" />
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
