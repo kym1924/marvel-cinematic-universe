@@ -5,7 +5,7 @@
 </div>
 
 # Marvel Cinematic Universe
-Marvel Cinematic Universe is an app for practicing various Jetpack libraries.
+Marvel Cinematic Universe is an app for practicing various [Jetpack libraries](https://developer.android.com/jetpack).
 <br>
 <br>
 
@@ -63,10 +63,9 @@ Marvel Cinematic Universe is an app for practicing various Jetpack libraries.
 - Repositories get immutable data stream from Database and expose it to the ViewModel.
 
 ### Room Database
-- To use the database efficiently, refer to the 7-pro-tips. [(link)](https://medium.com/androiddevelopers/7-pro-tips-for-room-fbadea4bfbd1)
-
 ![Room Database](./images/database.png)
 
+- To use the Room database efficiently, refer to [the 7-pro-tips.](https://medium.com/androiddevelopers/7-pro-tips-for-room-fbadea4bfbd1)
 - **Pre-populate your database via RoomDatabase#Callback.**
   - You can detect the moment the database is created with RoomDatabase.Callback().
   - Using [WorkManager](https://github.com/kym1924/marvel/blob/master/app/src/main/java/com/kimym/marvel/worker/MarvelDatabaseWorker.kt), add default data when a database is created.
