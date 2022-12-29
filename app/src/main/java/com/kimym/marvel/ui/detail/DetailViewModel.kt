@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.kimym.marvel.data.repository.DetailRepository
+import com.kimym.marvel.data.repository.RatingRepository
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
@@ -12,18 +13,19 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
 class DetailViewModel @AssistedInject constructor(
-    private val repository: DetailRepository,
+    detailRepository: DetailRepository,
+    private val ratingRepository: RatingRepository,
     @Assisted private val title: String
 ) : ViewModel() {
-    val movie = repository.getMovie(title)
+    val movie = detailRepository.getMovie(title)
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(), null)
 
-    val isFavorite = repository.isFavorite(title)
+    val existsRating = ratingRepository.getExistsRating(title)
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(), true)
 
     fun insertRating(rating: Float) {
         viewModelScope.launch {
-            repository.insertRating(title, rating)
+            ratingRepository.insertRating(title, rating)
         }
     }
 
