@@ -6,6 +6,8 @@ import com.kimym.marvel.data.repository.FavoriteRepository
 import com.kimym.marvel.data.repository.FavoriteRepositoryImpl
 import com.kimym.marvel.data.repository.MovieRepository
 import com.kimym.marvel.data.repository.MovieRepositoryImpl
+import com.kimym.marvel.data.repository.RatingRepository
+import com.kimym.marvel.data.repository.RatingRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -32,4 +34,10 @@ abstract class RepositoryModule {
     abstract fun bindDetailRepository(
         detailRepositoryImpl: DetailRepositoryImpl
     ): DetailRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindRatingRepository(
+        ratingRepositoryImpl: RatingRepositoryImpl
+    ): RatingRepository
 }
