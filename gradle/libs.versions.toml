@@ -21,7 +21,7 @@ glide = "4.14.2"
 timber = "5.0.1"
 
 junit = "4.13.2"
-testJunit = "1.1.4"
+testJunit = "1.1.5"
 testEspresso = "3.5.1"
 
 [libraries]
