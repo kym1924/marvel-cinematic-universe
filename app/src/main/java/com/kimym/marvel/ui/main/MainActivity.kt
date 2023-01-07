@@ -6,22 +6,37 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
+import androidx.metrics.performance.JankStats
+import androidx.metrics.performance.PerformanceMetricsState
 import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.kimym.marvel.R
 import com.kimym.marvel.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
+    private val holder by lazy { PerformanceMetricsState.getHolderForHierarchy(binding.root) }
+
+    private lateinit var jankStats: JankStats
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        initJankStats()
         initBottomNavigationView()
         initDecorFitsSystemWindows()
+    }
+
+    private fun initJankStats() {
+        jankStats = JankStats.createAndTrack(window) { frameData ->
+            frameData.takeIf { it.isJank }?.let { Timber.d(frameData.toString()) }
+        }
     }
 
     private fun initBottomNavigationView() {
@@ -37,12 +52,21 @@ class MainActivity : AppCompatActivity() {
     private fun addOnDestinationChangedListener(navController: NavController): NavController {
         return navController.apply {
             addOnDestinationChangedListener { _, destination, _ ->
-                when (destination.id) {
-                    R.id.movieFragment, R.id.favoriteFragment -> setBottomNavigationShowAnimation()
-                    else -> setBottomNavigationHideAnimation()
-                }
+                setBottomNavigationVisibility(destination)
+                putStateInMetricsStateHolder(destination)
             }
         }
+    }
+
+    private fun setBottomNavigationVisibility(destination: NavDestination) {
+        when (destination.id) {
+            R.id.movieFragment, R.id.favoriteFragment -> setBottomNavigationShowAnimation()
+            else -> setBottomNavigationHideAnimation()
+        }
+    }
+
+    private fun putStateInMetricsStateHolder(destination: NavDestination) {
+        holder.state?.putState("CurrentDestination", "${destination.label}")
     }
 
     private fun setBottomNavigationShowAnimation() {
@@ -73,5 +97,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun initDecorFitsSystemWindows() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        jankStats.isTrackingEnabled = true
+    }
+
+    override fun onPause() {
+        super.onPause()
+        jankStats.isTrackingEnabled = false
     }
 }
