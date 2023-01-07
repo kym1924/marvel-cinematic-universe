@@ -6,6 +6,8 @@ import androidx.fragment.app.viewModels
 import com.kimym.marvel.R
 import com.kimym.marvel.base.BaseFragment
 import com.kimym.marvel.databinding.FragmentFavoriteBinding
+import com.kimym.marvel.util.addOnScrollListenerForJankStats
+import com.kimym.marvel.util.getMetricsStateHolder
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -15,6 +17,7 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>(R.layout.fragment
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initBindingVariables()
+        initScrollListenerForJankStats()
     }
 
     private fun initBindingVariables() {
@@ -23,5 +26,10 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>(R.layout.fragment
             adapter = FavoriteAdapter()
             executePendingBindings()
         }
+    }
+
+    private fun initScrollListenerForJankStats() {
+        val holder = binding.getMetricsStateHolder()
+        binding.rvFavorite.addOnScrollListenerForJankStats(holder)
     }
 }
