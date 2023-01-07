@@ -20,6 +20,7 @@ Marvel Cinematic Universe is an app for practicing various [Jetpack libraries](h
   - [AppStartup](https://developer.android.com/topic/libraries/app-startup) : A straightforward, performant way to initialize components at application startup.
   - [DataBinding](https://developer.android.com/topic/libraries/data-binding) : A support library that allows you to bind UI components in your layouts to data sources in your app using a declarative format rather than programmatically.
   - [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) : A dependency injection library for Android that reduces the boilerplate of doing manual dependency injection in your project.
+  - [JankStats](https://developer.android.com/topic/performance/jankstats) : Track and analyze jank performance problems in your app's UI.
   - [Lifecycle](https://developer.android.com/reference/androidx/lifecycle/Lifecycle) : Defines an object that has an Android Lifecycle.
   - [Navigation-component](https://developer.android.com/guide/navigation) : Helps you implement navigation, from simple button clicks to more complex patterns, such as app bars and the navigation drawer.
   - [Room](https://developer.android.com/training/data-storage/room) : An abstraction layer over SQLite to allow fluent database access while harnessing the full power of SQLite.
