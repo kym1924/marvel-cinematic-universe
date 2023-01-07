@@ -18,14 +18,14 @@ Marvel Cinematic Universe is an app for practicing various [Jetpack libraries](h
   - [Flow](https://kotlinlang.org/docs/flow.html)
 - **Android**
   - [AppStartup](https://developer.android.com/topic/libraries/app-startup) : A straightforward, performant way to initialize components at application startup.
-  - [DataBinding](https://developer.android.com/topic/libraries/data-binding) : A support library that allows you to bind UI components in your layouts to data sources in your app using a declarative format rather than programmatically.
-  - [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) : A dependency injection library for Android that reduces the boilerplate of doing manual dependency injection in your project.
+  - [DataBinding](https://developer.android.com/topic/libraries/data-binding) : Bind UI components in your layouts to data sources in your app using a declarative format.
+  - [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) : Jetpack's recommended DI solution for Android.
   - [JankStats](https://developer.android.com/topic/performance/jankstats) : Track and analyze jank performance problems in your app's UI.
   - [Lifecycle](https://developer.android.com/reference/androidx/lifecycle/Lifecycle) : Defines an object that has an Android Lifecycle.
-  - [Navigation-component](https://developer.android.com/guide/navigation) : Helps you implement navigation, from simple button clicks to more complex patterns, such as app bars and the navigation drawer.
-  - [Room](https://developer.android.com/training/data-storage/room) : An abstraction layer over SQLite to allow fluent database access while harnessing the full power of SQLite.
+  - [Navigation-component](https://developer.android.com/guide/navigation) : Framework for navigating between destinations within an app.
+  - [Room](https://developer.android.com/training/data-storage/room) : Database persistence layer designed for usability, safety, and testability.
   - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) : A business logic or screen level state holder.
-  - [WorkManager](https://developer.android.com/reference/androidx/work/WorkManager) : The recommended solution for persistent work. Work is persistent when it remains scheduled through app restarts and system reboots.
+  - [WorkManager](https://developer.android.com/reference/androidx/work/WorkManager) : A library for managing deferrable and guaranteed background work.
 - **Architecture**
   - MVVM (Model - View - ViewModel)
   - Repository Pattern
