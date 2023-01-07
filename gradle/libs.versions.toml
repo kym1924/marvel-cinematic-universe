@@ -12,6 +12,7 @@ androidxNavigation = "2.5.3"
 androidxRoom = "2.4.3"
 androidxWorkManager = "2.7.1"
 androidxHiltWorkManager = "1.0.0"
+androidxJankStats = "1.0.0-alpha03"
 
 gson = "2.10.1"
 hilt = "2.44.2"
@@ -38,6 +39,7 @@ androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref =
 androidx-workmanager = { module = "androidx.work:work-runtime-ktx", version.ref = "androidxWorkManager" }
 androidx-hilt-workmanager = { module = "androidx.hilt:hilt-work", version.ref = "androidxHiltWorkManager" }
 androidx-hilt-compiler = { module = "androidx.hilt:hilt-compiler", version.ref = "androidxHiltWorkManager" }
+androidx-jank-stats = { module = "androidx.metrics:metrics-performance", version.ref = "androidxJankStats" }
 
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 hilt = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
