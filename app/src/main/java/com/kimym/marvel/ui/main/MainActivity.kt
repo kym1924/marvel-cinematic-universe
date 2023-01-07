@@ -7,13 +7,14 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.metrics.performance.JankStats
-import androidx.metrics.performance.PerformanceMetricsState
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.kimym.marvel.R
 import com.kimym.marvel.databinding.ActivityMainBinding
+import com.kimym.marvel.util.getMetricsStateHolder
+import com.kimym.marvel.util.putState
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
@@ -21,7 +22,7 @@ import timber.log.Timber
 class MainActivity : AppCompatActivity() {
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
-    private val holder by lazy { PerformanceMetricsState.getHolderForHierarchy(binding.root) }
+    private val holder by lazy { binding.getMetricsStateHolder() }
 
     private lateinit var jankStats: JankStats
 
@@ -66,7 +67,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun putStateInMetricsStateHolder(destination: NavDestination) {
-        holder.state?.putState("CurrentDestination", "${destination.label}")
+        holder.putState("CurrentDestination", "${destination.label}")
     }
 
     private fun setBottomNavigationShowAnimation() {
