@@ -1,7 +1,8 @@
 <div>
-<img src="https://img.shields.io/badge/Android-3DDC84?style=flat&logo=Android&logoColor=white" />
-<img src="https://img.shields.io/badge/Kotlin-7F52FF?style=flat&logo=Kotlin&logoColor=white" />
+<img src="https://img.shields.io/badge/Android-3DDC84?style=flat&logo=Android&logoColor=white"/>
+<img src="https://img.shields.io/badge/Kotlin-7F52FF?style=flat&logo=Kotlin&logoColor=white"/>
 <img src="https://img.shields.io/badge/writer-kym1924-yellow?&style=flat&logo=Android"/>
+<img src="https://github.com/kym1924/marvel-cinematic-universe/actions/workflows/android.yml/badge.svg"/>
 </div>
 
 # Marvel Cinematic Universe
