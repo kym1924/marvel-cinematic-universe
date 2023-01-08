@@ -13,7 +13,7 @@ Marvel Cinematic Universe is an app for practicing various [Jetpack libraries](h
 ![screenshots](./images/screenshots.png)
 <br>
 
-## Used Library
+## Libraries
 - **[Kotlin](https://kotlinlang.org/)**
   - [Coroutines](https://kotlinlang.org/docs/coroutines-guide.html)
   - [Flow](https://kotlinlang.org/docs/flow.html)
@@ -28,20 +28,15 @@ Marvel Cinematic Universe is an app for practicing various [Jetpack libraries](h
   - [Splash-screens](https://developer.android.com/develop/ui/views/launch/splash-screen) : A new app launch animation for all apps when running on a device with Android 12 or higher.
   - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) : A business logic or screen level state holder.
   - [WorkManager](https://developer.android.com/reference/androidx/work/WorkManager) : A library for managing deferrable and guaranteed background work.
-- **Architecture**
-  - MVVM (Model - View - ViewModel)
-  - Repository Pattern
 - [Glide](https://github.com/bumptech/glide) : An image loading and caching library for Android.
 - [Gson](https://github.com/google/gson) : A Java serialization/deserialization library to convert Java Objects into JSON and back.
 - [Material-Components](https://github.com/material-components/material-components-android) : Modular and customizable Material Design UI components for Android.
 - [Timber](https://github.com/JakeWharton/timber) : A logger with a small, extensible API.
 
-## Used Content
-- All content used in [this json file](https://github.com/kym1924/marvel/blob/master/app/src/main/assets/marvel.json) was taken from [Marvel Official site](https://www.marvel.com/).
-
 ## Architecture
+- MVVM (Model - View - ViewModel)
+- Repository Pattern
 - Trying to follow [Guide to app architecture.](https://developer.android.com/topic/architecture)
-- This application is based on MVVM architecture and Repository pattern.
 
 ![architecture](./images/architecture.png)
 
@@ -126,3 +121,6 @@ Marvel Cinematic Universe is an app for practicing various [Jetpack libraries](h
   ```
   
   - This will also improve the speed of queries by reducing the IO cost.
+
+## Contents
+- [All contents](https://github.com/kym1924/marvel/blob/master/app/src/main/assets/marvel.json) used in this application belongs to [Marvel Official site.](https://www.marvel.com/)
