@@ -24,6 +24,7 @@ Marvel Cinematic Universe is an app for practicing various [Jetpack libraries](h
   - [Lifecycle](https://developer.android.com/reference/androidx/lifecycle/Lifecycle) : Defines an object that has an Android Lifecycle.
   - [Navigation-component](https://developer.android.com/guide/navigation) : Framework for navigating between destinations within an app.
   - [Room](https://developer.android.com/training/data-storage/room) : Database persistence layer designed for usability, safety, and testability.
+  - [Splash-screens](https://developer.android.com/develop/ui/views/launch/splash-screen) : A new app launch animation for all apps when running on a device with Android 12 or higher.
   - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) : A business logic or screen level state holder.
   - [WorkManager](https://developer.android.com/reference/androidx/work/WorkManager) : A library for managing deferrable and guaranteed background work.
 - **Architecture**
