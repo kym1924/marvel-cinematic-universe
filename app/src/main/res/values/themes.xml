@@ -15,4 +15,9 @@
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:navigationBarColor">@color/black_alpha_50</item>
     </style>
+
+    <style name="Theme.MarvelCinematicUniverse.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash</item>
+        <item name="postSplashScreenTheme">@style/Theme.MarvelCinematicUniverse</item>
+    </style>
 </resources>
