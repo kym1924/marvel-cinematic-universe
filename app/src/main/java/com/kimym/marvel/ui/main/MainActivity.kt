@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
 import androidx.metrics.performance.JankStats
 import androidx.navigation.NavController
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        installSplashScreen()
         setContentView(binding.root)
         initJankStats()
         initBottomNavigationView()
