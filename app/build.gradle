@@ -54,6 +54,7 @@ dependencies {
     implementation(libs.androidx.hilt.workmanager)
     kapt(libs.androidx.hilt.compiler)
     implementation(libs.androidx.jank.stats)
+    implementation(libs.androidx.splash)
 
     implementation(libs.gson)
     implementation(libs.hilt)
