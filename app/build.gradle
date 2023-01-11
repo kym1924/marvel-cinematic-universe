@@ -65,6 +65,7 @@ dependencies {
     kapt(libs.glide.compiler)
     implementation(libs.timber)
 
+    androidTestImplementation(libs.androidx.navigation.test)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso)
