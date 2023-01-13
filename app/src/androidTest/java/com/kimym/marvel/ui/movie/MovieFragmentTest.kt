@@ -6,7 +6,9 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu
 import androidx.test.espresso.ViewAssertion
 import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
@@ -33,10 +35,24 @@ class MovieFragmentTest {
     }
 
     @Test
-    fun testMovieFragmentToolbarTitle() {
-        onView(withId(R.id.toolbar_movie)).check(matches(isDisplayed()))
-        onView(withId(R.id.toolbar_movie)).check(matches(hasDescendant(withText("Marvel Cinematic Universe "))))
+    fun testDefaultToolbarTitleIsMarvelCinematicUniverse() {
+        with(onView(withId(R.id.toolbar_movie))) {
+            check(matches(isDisplayed()))
+            check(matches(hasDescendant(withText("Marvel Cinematic Universe "))))
+        }
+    }
 
+    @Test
+    fun testNavigateToDetailFragment() {
+        with(onView(withId(R.id.rv_movie))) {
+            check(matches(isDisplayed()))
+            perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+            check(doesNotExist())
+        }
+    }
+
+    @Test
+    fun testToolbarMenuClickAndChangeToolbarTitle() {
         openToolbarMenuAndClickPhase(R.string.phase_1)
         openToolbarMenuAndClickPhase(R.string.phase_2)
         openToolbarMenuAndClickPhase(R.string.phase_3)
