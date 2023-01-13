@@ -8,7 +8,7 @@
     <string name="favorites_empty">Favorites are empty.</string>
 
     <!-- fragment_detail -->
-    <string name="detail_release_and_running_time">%s / %d min</string>
+    <string name="detail_release_and_running_time">%1$s / %2$d min</string>
 
     <!-- dialog_rating -->
     <string name="rating_title">Please enter your star rating for</string>
