@@ -55,6 +55,7 @@ timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 junit = { module = "junit:junit", version.ref = "junit" }
 androidx-junit = { module = "androidx.test.ext:junit", version.ref = "testJunit" }
 androidx-espresso = { module = "androidx.test.espresso:espresso-core", version.ref = "testEspresso" }
+androidx-espresso-contrib = { module = "androidx.test.espresso:espresso-contrib", version.ref = "testEspresso" }
 androidx-navigation-test = { module = "androidx.navigation:navigation-testing", version.ref = "androidxNavigation" }
 
 [plugins]
