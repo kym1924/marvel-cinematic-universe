@@ -8,6 +8,7 @@
     <string name="favorites_empty">Favorites are empty.</string>
 
     <!-- fragment_detail -->
+    <string name="navigation_icon_content_description">Icon Pop Back Stack</string>
     <string name="detail_release_and_running_time">%1$s / %2$d min</string>
 
     <!-- dialog_rating -->
