@@ -25,6 +25,7 @@ timber = "5.0.1"
 junit = "4.13.2"
 testJunit = "1.1.5"
 testEspresso = "3.5.1"
+testCoroutines = "1.6.4"
 
 [libraries]
 androidx-core = { module = "androidx.core:core-ktx", version.ref = "androidxCore" }
@@ -57,6 +58,7 @@ androidx-junit = { module = "androidx.test.ext:junit", version.ref = "testJunit"
 androidx-espresso = { module = "androidx.test.espresso:espresso-core", version.ref = "testEspresso" }
 androidx-espresso-contrib = { module = "androidx.test.espresso:espresso-contrib", version.ref = "testEspresso" }
 androidx-navigation-test = { module = "androidx.navigation:navigation-testing", version.ref = "androidxNavigation" }
+coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "testCoroutines" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "gradlePlugin" }
