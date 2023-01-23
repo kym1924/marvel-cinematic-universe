@@ -59,6 +59,8 @@ androidx-espresso = { module = "androidx.test.espresso:espresso-core", version.r
 androidx-espresso-contrib = { module = "androidx.test.espresso:espresso-contrib", version.ref = "testEspresso" }
 androidx-navigation-test = { module = "androidx.navigation:navigation-testing", version.ref = "androidxNavigation" }
 coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "testCoroutines" }
+hilt-test = { module = "com.google.dagger:hilt-android-testing", version.ref = "hilt" }
+hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "gradlePlugin" }
