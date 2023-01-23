@@ -18,7 +18,7 @@ android {
         versionCode config.versionCode
         versionName config.versionName
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.kimym.marvel.MarvelTestRunner"
     }
 
     buildTypes {
@@ -79,4 +79,6 @@ dependencies {
 
     androidTestImplementation(libs.androidx.navigation.test)
     androidTestImplementation(libs.coroutines.test)
+    androidTestImplementation(libs.hilt.test)
+    kaptAndroidTest(libs.hilt.android.compiler)
 }
