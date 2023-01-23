@@ -76,6 +76,7 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso)
     implementation(libs.androidx.espresso.contrib)
-    androidTestImplementation(libs.androidx.navigation.test)
 
+    androidTestImplementation(libs.androidx.navigation.test)
+    androidTestImplementation(libs.coroutines.test)
 }
