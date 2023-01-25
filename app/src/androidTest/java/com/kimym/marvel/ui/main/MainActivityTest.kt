@@ -10,21 +10,32 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.ActivityScenarioRule
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.kimym.marvel.R
+import dagger.hilt.android.testing.HiltAndroidRule
+import dagger.hilt.android.testing.HiltAndroidTest
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import org.junit.rules.RuleChain
+import org.junit.runner.RunWith
 
+@HiltAndroidTest
+@RunWith(AndroidJUnit4::class)
 class MainActivityTest {
     private lateinit var bottomNavigationView: BottomNavigationView
 
     private val menu get() = bottomNavigationView.menu
 
+    private var activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
+
     @get:Rule
-    val activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
+    var rule: RuleChain = RuleChain
+        .outerRule(HiltAndroidRule(this))
+        .around(activityScenarioRule)
 
     @Before
     fun setUp() {
@@ -47,9 +58,10 @@ class MainActivityTest {
 
     @Test
     fun testBottomNavigationViewSelection() {
-        assertTrue(menu.findItem(R.id.movieFragment).isChecked)
         onView(withId(R.id.favoriteFragment)).perform(click())
         assertTrue(menu.findItem(R.id.favoriteFragment).isChecked)
+        onView(withId(R.id.movieFragment)).perform(click())
+        assertTrue(menu.findItem(R.id.movieFragment).isChecked)
     }
 
     @Test
