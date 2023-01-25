@@ -9,17 +9,38 @@ import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.kimym.marvel.R
+import com.kimym.marvel.data.repository.FavoriteRepository
 import com.kimym.marvel.ui.main.MainActivity
+import dagger.hilt.android.testing.HiltAndroidRule
+import dagger.hilt.android.testing.HiltAndroidTest
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import org.junit.rules.RuleChain
+import javax.inject.Inject
 
+@HiltAndroidTest
 class FavoriteFragmentTest {
+    @Inject
+    lateinit var repository: FavoriteRepository
+
+    private var hiltRule = HiltAndroidRule(this)
+
+    private var activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
+
     @get:Rule
-    val activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
+    var rule: RuleChain = RuleChain.outerRule(hiltRule).around(activityScenarioRule)
 
     @Before
     fun setUp() {
+        hiltRule.inject()
+        bottomNavigationViewDefaultSelectedItem()
+    }
+
+    private fun bottomNavigationViewDefaultSelectedItem() {
         activityScenarioRule.scenario.onActivity { activity ->
             activity.findViewById<BottomNavigationView>(R.id.bottom_navigation)
                 .selectedItemId = R.id.favoriteFragment
@@ -34,8 +55,12 @@ class FavoriteFragmentTest {
         }
     }
 
+    @ExperimentalCoroutinesApi
     @Test
-    fun testFavoriteEmptyTestIsDisplayed() {
-        onView(withText("Favorites are empty.")).check(matches(isDisplayed()))
+    fun testEmptyTextForFavoritesIsEmptyOrRecyclerViewForFavoritesIsNotEmpty() = runTest {
+        when (repository.getFavorites().first().isEmpty()) {
+            true -> onView((withId(R.id.tv_favorite_empty))).check(matches(isDisplayed()))
+            false -> onView((withId(R.id.rv_favorite))).check(matches(isDisplayed()))
+        }
     }
 }
