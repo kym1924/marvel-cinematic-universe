@@ -14,18 +14,29 @@ import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.rules.ActivityScenarioRule
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
 import com.kimym.marvel.R
 import com.kimym.marvel.ui.main.MainActivity
+import dagger.hilt.android.testing.HiltAndroidRule
+import dagger.hilt.android.testing.HiltAndroidTest
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import org.junit.rules.RuleChain
+import org.junit.runner.RunWith
 
+@HiltAndroidTest
+@RunWith(AndroidJUnit4::class)
 class MovieFragmentTest {
     private val context get() = getInstrumentation().targetContext
 
+    private var activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
+
     @get:Rule
-    val activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
+    var rule: RuleChain = RuleChain
+        .outerRule(HiltAndroidRule(this))
+        .around(activityScenarioRule)
 
     @Before
     fun setUp() {
