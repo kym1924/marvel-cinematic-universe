@@ -7,7 +7,7 @@ import com.kimym.marvel.BR
 import com.kimym.marvel.NavGraphDirections
 
 class MarvelViewHolder<T>(
-    private val binding: ViewDataBinding,
+    private val binding: ViewDataBinding
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(model: T) {
         with(binding) {
