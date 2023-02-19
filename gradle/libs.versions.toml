@@ -1,7 +1,7 @@
 [versions]
 gradlePlugin = "7.4.1"
 kotlin = "1.8.10"
-ktlint = "11.1.0"
+ktlint = "11.2.0"
 
 androidxCore = "1.9.0"
 androidxAppcompat = "1.6.1"
