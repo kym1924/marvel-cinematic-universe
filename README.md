@@ -20,6 +20,7 @@ Marvel Cinematic Universe is an app for practicing various [Jetpack libraries](h
 - **Android**
   - [AppStartup](https://developer.android.com/topic/libraries/app-startup) : A straightforward, performant way to initialize components at application startup.
   - [DataBinding](https://developer.android.com/topic/libraries/data-binding) : Bind UI components in your layouts to data sources in your app using a declarative format.
+  - [Datastore](https://developer.android.com/topic/libraries/architecture/datastore) : A data storage using Kotlin coroutines and Flow to store small and simple datasets.
   - [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) : Jetpack's recommended DI solution for Android.
   - [JankStats](https://developer.android.com/topic/performance/jankstats) : Track and analyze jank performance problems in your app's UI.
   - [Lifecycle](https://developer.android.com/reference/androidx/lifecycle/Lifecycle) : Defines an object that has an Android Lifecycle.
