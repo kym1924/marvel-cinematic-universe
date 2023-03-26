@@ -16,9 +16,6 @@ interface MarvelDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMovies(movies: List<Movie>)
 
-    @Insert
-    suspend fun insertRating(rating: Rating)
-
     @Query("SELECT id, title, image FROM Movie")
     fun getMovies(): Flow<List<MovieBasicInfo>>
 
@@ -38,6 +35,15 @@ interface MarvelDao {
     @Query("SELECT id, title, content, `release`, running_time AS runningTime, image FROM Movie WHERE title = :title")
     fun getMovie(title: String): Flow<MovieDetailInfo>
 
-    @Query("SELECT EXISTS(SELECT 1 FROM Rating WHERE title = :title)")
-    fun getExistsRating(title: String): Flow<Boolean>
+    @Query("SELECT rating FROM Rating WHERE title = :title")
+    fun getRating(title: String): Flow<Float>
+
+    @Insert
+    suspend fun insertRating(rating: Rating)
+
+    @Query("UPDATE Rating SET rating = :rating WHERE title = :title")
+    suspend fun updateRating(title: String, rating: Float)
+
+    @Query("DELETE FROM Rating WHERE title = :title")
+    suspend fun deleteRating(title: String)
 }
