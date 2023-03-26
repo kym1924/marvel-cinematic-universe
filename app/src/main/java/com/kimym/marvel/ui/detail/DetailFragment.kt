@@ -30,6 +30,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(R.layout.fragment_det
         super.onViewCreated(view, savedInstanceState)
         initBindingVariables()
         initToolbarNavigationClickListener()
+        initRatingBarChangeListener()
         initFragmentResultListener()
     }
 
@@ -51,6 +52,12 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(R.layout.fragment_det
     private fun initToolbarNavigationClickListener() {
         binding.toolbarDetail.setNavigationOnClickListener {
             findNavController().popBackStack()
+        }
+    }
+
+    private fun initRatingBarChangeListener() {
+        binding.ratingDetail.setOnRatingBarChangeListener { _, value, _ ->
+            viewModel.changeRating(value)
         }
     }
 

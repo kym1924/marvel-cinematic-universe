@@ -72,6 +72,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <RatingBar
+                    android:id="@+id/rating_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:contentDescription="@string/rating_content_description"
+                    android:isIndicator="false"
+                    android:numStars="5"
+                    android:progressTint="@color/yellow_500"
+                    android:rating="@{vm.rating}"
+                    android:stepSize="1"
+                    android:visibility="@{vm.rating != 0f ? View.VISIBLE : View.GONE, default = gone}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:rating="3" />
+
                 <TextView
                     android:id="@+id/tv_detail_title"
                     android:layout_width="wrap_content"
@@ -83,7 +100,7 @@
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rating_detail"
                     tools:text="IronMan" />
 
                 <TextView
@@ -122,7 +139,7 @@
             android:layout_margin="16dp"
             android:contentDescription="@string/floating_action_button_content_description"
             android:onClick="@{(view) -> callback.navigate(view, vm.movie.title)}"
-            android:visibility="@{vm.existsRating ? View.GONE : View.VISIBLE, default = gone}"
+            android:visibility="@{vm.rating != 0f ? View.GONE : View.VISIBLE, default = gone}"
             app:backgroundTint="@android:color/holo_red_dark"
             app:layout_anchor="@id/app_bar_detail"
             app:layout_anchorGravity="bottom|end"
