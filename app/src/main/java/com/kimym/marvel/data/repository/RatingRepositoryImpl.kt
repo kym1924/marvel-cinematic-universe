@@ -11,11 +11,18 @@ class RatingRepositoryImpl @Inject constructor(
     private val dao: MarvelDao,
     private val ioDispatcher: CoroutineDispatcher
 ) : RatingRepository {
-    override fun getExistsRating(title: String): Flow<Boolean> {
-        return dao.getExistsRating(title).flowOn(ioDispatcher)
+    override fun getRating(title: String): Flow<Float> {
+        return dao.getRating(title).flowOn(ioDispatcher)
     }
 
     override suspend fun insertRating(title: String, rating: Float) {
         dao.insertRating(Rating(title = title, rating = rating))
+    }
+
+    override suspend fun changeRating(title: String, rating: Float) {
+        when (rating) {
+            0f -> dao.deleteRating(title)
+            else -> dao.updateRating(title, rating)
+        }
     }
 }
