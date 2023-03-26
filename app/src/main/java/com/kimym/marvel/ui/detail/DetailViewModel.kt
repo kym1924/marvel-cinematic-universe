@@ -20,12 +20,20 @@ class DetailViewModel @AssistedInject constructor(
     val movie = detailRepository.getMovie(title)
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(), null)
 
-    val existsRating = ratingRepository.getExistsRating(title)
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(), true)
+    val rating = ratingRepository.getRating(title)
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(), 0f)
 
     fun insertRating(rating: Float) {
         viewModelScope.launch {
             ratingRepository.insertRating(title, rating)
+        }
+    }
+
+    fun changeRating(value: Float) {
+        viewModelScope.launch {
+            if (value != rating.value) {
+                ratingRepository.changeRating(title, value)
+            }
         }
     }
 
