@@ -4,7 +4,6 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withContentDescription
@@ -19,8 +18,9 @@ import com.kimym.marvel.ui.main.MainActivity
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.test.runTest
+import org.hamcrest.CoreMatchers.not
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
@@ -73,22 +73,32 @@ class DetailFragmentTest {
 
     @ExperimentalCoroutinesApi
     @Test
-    fun testFloatingActionButtonIsDisplayed() = runTest {
-        when (repository.getExistsRating(TITLE).first()) {
-            true -> onView(withId(R.id.fab_detail_favorite)).check(doesNotExist())
-            false -> onView(withId(R.id.fab_detail_favorite)).check(matches(isDisplayed()))
+    fun testFloatingActionButtonIsDisplayedWhenRatingDoesNotExist() = runTest {
+        when (repository.getRating(TITLE).firstOrNull()) {
+            null -> onView(withId(R.id.fab_detail_favorite)).check(matches(isDisplayed()))
+            else -> onView(withId(R.id.fab_detail_favorite)).check(matches(not(isDisplayed())))
         }
     }
 
     @ExperimentalCoroutinesApi
     @Test
-    fun testFloatingActionButtonClickToNavigateRatingDialog() = runTest {
-        when (repository.getExistsRating(TITLE).first()) {
-            true -> onView(withId(R.id.fab_detail_favorite)).check(doesNotExist())
-            false -> {
-                assertEquals(navController.currentDestination?.id, R.id.detailFragment)
+    fun testRatingBarIsDisplayedWhenRatingIsExists() = runTest {
+        when (repository.getRating(TITLE).firstOrNull()) {
+            null -> onView(withId(R.id.rating_detail)).check(matches(not(isDisplayed())))
+            else -> onView(withId(R.id.rating_detail)).check(matches(isDisplayed()))
+        }
+    }
+
+    @ExperimentalCoroutinesApi
+    @Test
+    fun testFloatingActionButtonClickToNavigateRatingDialogWhenRatingDoesNotExist() = runTest {
+        when (repository.getRating(TITLE).firstOrNull()) {
+            null -> {
                 onView(withId(R.id.fab_detail_favorite)).perform(click())
                 assertEquals(navController.currentDestination?.id, R.id.ratingDialog)
+            }
+            else -> {
+                assertEquals(navController.currentDestination?.id, R.id.detailFragment)
             }
         }
     }
