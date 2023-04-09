@@ -3,7 +3,7 @@ gradlePlugin = "7.4.2"
 kotlin = "1.8.20"
 ktlint = "11.3.1"
 
-androidxCore = "1.9.0"
+androidxCore = "1.10.0"
 androidxAppcompat = "1.6.1"
 androidxAppStartup = "1.1.1"
 androidxConstraintLayout = "2.1.4"
