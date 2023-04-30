@@ -14,7 +14,7 @@ androidxRoom = "2.5.1"
 androidxWorkManager = "2.8.1"
 androidxHiltWorkManager = "1.0.0"
 androidxJankStats = "1.0.0-alpha04"
-androidxSplash = "1.0.0"
+androidxSplash = "1.0.1"
 
 gson = "2.10.1"
 hilt = "2.45"
