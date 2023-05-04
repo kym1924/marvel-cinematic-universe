@@ -18,7 +18,7 @@ androidxSplash = "1.0.1"
 
 gson = "2.10.1"
 hilt = "2.45"
-material = "1.8.0"
+material = "1.9.0"
 
 glide = "4.15.1"
 timber = "5.0.1"
