@@ -13,7 +13,6 @@ import com.kimym.marvel.data.repository.FavoriteRepository
 import com.kimym.marvel.ui.main.MainActivity
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
@@ -55,7 +54,6 @@ class FavoriteFragmentTest {
         }
     }
 
-    @ExperimentalCoroutinesApi
     @Test
     fun testEmptyTextForFavoritesIsEmptyOrRecyclerViewForFavoritesIsNotEmpty() = runTest {
         when (repository.getFavorites().first().isEmpty()) {

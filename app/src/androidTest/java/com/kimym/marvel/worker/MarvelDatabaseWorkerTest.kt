@@ -12,7 +12,6 @@ import androidx.work.testing.WorkManagerTestInitHelper
 import com.kimym.marvel.database.MarvelDao
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.hamcrest.CoreMatchers.`is`
 import org.junit.Before
@@ -41,7 +40,6 @@ class MarvelDatabaseWorkerTest {
         WorkManagerTestInitHelper.initializeTestWorkManager(context, config)
     }
 
-    @ExperimentalCoroutinesApi
     @Test
     fun marvelDatabaseWorker_doWork_success() = runTest {
         val context = InstrumentationRegistry.getInstrumentation().targetContext
