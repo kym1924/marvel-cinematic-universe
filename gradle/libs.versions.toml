@@ -17,7 +17,7 @@ androidxJankStats = "1.0.0-alpha04"
 androidxSplash = "1.0.1"
 
 gson = "2.10.1"
-hilt = "2.45"
+hilt = "2.46.1"
 material = "1.9.0"
 
 glide = "4.15.1"
