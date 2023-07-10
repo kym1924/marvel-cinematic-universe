@@ -1,0 +1,46 @@
+plugins {
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin)
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ktlint)
+}
+
+android {
+    namespace 'com.kimym.marvel.core.data'
+    compileSdk config.compileSdk
+
+    defaultConfig {
+        minSdk config.minSdk
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17.toString()
+    }
+}
+
+dependencies {
+    implementation(project(":core-database"))
+    implementation(project(":core-datastore"))
+    implementation(project(":core-model"))
+    implementation(project(":core-worker"))
+    implementation(project(":data-detail"))
+    implementation(project(":data-favorite"))
+    implementation(project(":data-movie"))
+    implementation(project(":data-rating"))
+
+    implementation(libs.androidx.room)
+    implementation(libs.androidx.room.runtime)
+    kapt(libs.androidx.room.compiler)
+    implementation(libs.androidx.workmanager)
+    implementation(libs.androidx.hilt.workmanager)
+    kapt(libs.androidx.hilt.compiler)
+
+    implementation(libs.hilt)
+    kapt(libs.hilt.compiler)
+}
