@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rating_nav_graph"
+    app:startDestination="@id/ratingDialog">
+
+    <dialog
+        android:id="@+id/ratingDialog"
+        android:name="com.kimym.marvel.feature.rating.RatingDialog"
+        android:label="RatingDialog"
+        tools:layout="@layout/dialog_rating">
+
+        <argument
+            android:name="id"
+            app:argType="integer" />
+
+        <deepLink app:uri="marvel://rating?id={id}" />
+
+    </dialog>
+
+</navigation>

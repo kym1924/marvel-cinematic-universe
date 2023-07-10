@@ -1,0 +1,42 @@
+plugins {
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin)
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.navigation.safe.args)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ktlint)
+}
+
+android {
+    namespace 'com.kimym.marvel.feature.rating'
+    compileSdk config.compileSdk
+
+    defaultConfig {
+        minSdk config.minSdk
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17.toString()
+    }
+
+    buildFeatures {
+        dataBinding = true
+    }
+}
+
+dependencies {
+    implementation(project(":core-ui"))
+    implementation(project(":data-rating"))
+
+    implementation(libs.androidx.fragment)
+    implementation(libs.androidx.navigation)
+    implementation(libs.androidx.navigation.ui)
+
+    implementation(libs.hilt)
+    kapt(libs.hilt.compiler)
+}
