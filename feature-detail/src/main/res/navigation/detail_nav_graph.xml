@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/detail_nav_graph"
+    app:startDestination="@id/detailFragment">
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.kimym.marvel.feature.detail.DetailFragment"
+        android:label="DetailFragment"
+        tools:layout="@layout/fragment_detail">
+
+        <argument
+            android:name="id"
+            app:argType="integer" />
+
+        <deepLink app:uri="marvel://detail?id={id}" />
+
+    </fragment>
+
+</navigation>
