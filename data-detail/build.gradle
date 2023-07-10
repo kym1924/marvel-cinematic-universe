@@ -1,0 +1,34 @@
+plugins {
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin)
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ktlint)
+}
+
+android {
+    namespace 'com.kimym.marvel.data.detail'
+    compileSdk config.compileSdk
+
+    defaultConfig {
+        minSdk config.minSdk
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17.toString()
+    }
+}
+
+dependencies {
+
+    implementation(project(":core-database"))
+    implementation(project(":core-model"))
+
+    implementation(libs.hilt)
+    kapt(libs.hilt.compiler)
+}
