@@ -12,6 +12,7 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.kimym.marvel.MainActivity
 import com.kimym.marvel.R
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
@@ -22,6 +23,8 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.RuleChain
 import org.junit.runner.RunWith
+import com.kimym.marvel.feature.favorite.R as favoriteR
+import com.kimym.marvel.feature.movie.R as movieR
 
 @HiltAndroidTest
 @RunWith(AndroidJUnit4::class)
@@ -52,16 +55,16 @@ class MainActivityTest {
     @Test
     fun testBottomNavigationViewMenu() {
         assertEquals(menu.size(), 2)
-        assertEquals(menu[0].itemId, R.id.movieFragment)
-        assertEquals(menu[1].itemId, R.id.favoriteFragment)
+        assertEquals(menu[0].itemId, movieR.id.movieFragment)
+        assertEquals(menu[1].itemId, favoriteR.id.favoriteFragment)
     }
 
     @Test
     fun testBottomNavigationViewSelection() {
-        onView(withId(R.id.favoriteFragment)).perform(click())
-        assertTrue(menu.findItem(R.id.favoriteFragment).isChecked)
-        onView(withId(R.id.movieFragment)).perform(click())
-        assertTrue(menu.findItem(R.id.movieFragment).isChecked)
+        onView(withId(favoriteR.id.favoriteFragment)).perform(click())
+        assertTrue(menu.findItem(favoriteR.id.favoriteFragment).isChecked)
+        onView(withId(movieR.id.movieFragment)).perform(click())
+        assertTrue(menu.findItem(movieR.id.movieFragment).isChecked)
     }
 
     @Test
@@ -73,8 +76,8 @@ class MainActivityTest {
             bottomNavigationView.setupWithNavController(navController)
         }
 
-        assertEquals(navController.currentDestination?.id, R.id.movieFragment)
-        onView(withId(R.id.favoriteFragment)).perform(click())
-        assertEquals(navController.currentDestination?.id, R.id.favoriteFragment)
+        assertEquals(navController.currentDestination?.id, movieR.id.movieFragment)
+        onView(withId(favoriteR.id.favoriteFragment)).perform(click())
+        assertEquals(navController.currentDestination?.id, favoriteR.id.favoriteFragment)
     }
 }

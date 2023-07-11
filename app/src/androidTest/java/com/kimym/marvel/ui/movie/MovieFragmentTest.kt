@@ -16,8 +16,7 @@ import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
-import com.kimym.marvel.R
-import com.kimym.marvel.ui.main.MainActivity
+import com.kimym.marvel.MainActivity
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import org.junit.Before
@@ -25,6 +24,8 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.RuleChain
 import org.junit.runner.RunWith
+import com.kimym.marvel.core.ui.R as uiR
+import com.kimym.marvel.feature.movie.R as movieR
 
 @HiltAndroidTest
 @RunWith(AndroidJUnit4::class)
@@ -41,13 +42,13 @@ class MovieFragmentTest {
     @Before
     fun setUp() {
         activityScenarioRule.scenario.onActivity { activity ->
-            activity.findViewById<RecyclerView>(R.id.rv_movie).itemAnimator = null
+            activity.findViewById<RecyclerView>(movieR.id.rv_movie).itemAnimator = null
         }
     }
 
     @Test
     fun testDefaultToolbarTitleIsMarvelCinematicUniverse() {
-        with(onView(withId(R.id.toolbar_movie))) {
+        with(onView(withId(movieR.id.toolbar_movie))) {
             check(matches(isDisplayed()))
             check(matches(hasDescendant(withText("Marvel Cinematic Universe "))))
         }
@@ -55,7 +56,7 @@ class MovieFragmentTest {
 
     @Test
     fun testNavigateToDetailFragment() {
-        with(onView(withId(R.id.rv_movie))) {
+        with(onView(withId(movieR.id.rv_movie))) {
             check(matches(isDisplayed()))
             perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
             check(doesNotExist())
@@ -64,16 +65,16 @@ class MovieFragmentTest {
 
     @Test
     fun testToolbarMenuClickAndChangeToolbarTitle() {
-        openToolbarMenuAndClickPhase(R.string.phase_1)
-        openToolbarMenuAndClickPhase(R.string.phase_2)
-        openToolbarMenuAndClickPhase(R.string.phase_3)
-        openToolbarMenuAndClickPhase(R.string.phase_4)
+        openToolbarMenuAndClickPhase(uiR.string.phase_1)
+        openToolbarMenuAndClickPhase(uiR.string.phase_2)
+        openToolbarMenuAndClickPhase(uiR.string.phase_3)
+        openToolbarMenuAndClickPhase(uiR.string.phase_4)
     }
 
     private fun openToolbarMenuAndClickPhase(@StringRes phase: Int) {
         openActionBarOverflowOrOptionsMenu(context)
         onView(withText(phase)).perform(click())
-        onView(withId(R.id.toolbar_movie)).check(matchesToolbarTitle(phase))
+        onView(withId(movieR.id.toolbar_movie)).check(matchesToolbarTitle(phase))
     }
 
     private fun matchesToolbarTitle(@StringRes phase: Int): ViewAssertion? {
@@ -82,7 +83,7 @@ class MovieFragmentTest {
 
     private fun getToolbarTitle(@StringRes phase: Int): String {
         return String.format(
-            context.getString(R.string.movie_toolbar_title),
+            context.getString(uiR.string.movie_toolbar_title),
             context.getString(phase)
         )
     }

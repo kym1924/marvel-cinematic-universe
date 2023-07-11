@@ -8,9 +8,9 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.kimym.marvel.MainActivity
 import com.kimym.marvel.R
-import com.kimym.marvel.data.repository.FavoriteRepository
-import com.kimym.marvel.ui.main.MainActivity
+import com.kimym.marvel.data.favorite.FavoriteRepository
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.flow.first
@@ -20,6 +20,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.RuleChain
 import javax.inject.Inject
+import com.kimym.marvel.feature.favorite.R as favoriteR
 
 @HiltAndroidTest
 class FavoriteFragmentTest {
@@ -42,13 +43,13 @@ class FavoriteFragmentTest {
     private fun bottomNavigationViewDefaultSelectedItem() {
         activityScenarioRule.scenario.onActivity { activity ->
             activity.findViewById<BottomNavigationView>(R.id.bottom_navigation)
-                .selectedItemId = R.id.favoriteFragment
+                .selectedItemId = favoriteR.id.favoriteFragment
         }
     }
 
     @Test
     fun testToolbarTitleIsFavoriteMarvelMovies() {
-        with(onView(withId(R.id.toolbar_favorite))) {
+        with(onView(withId(favoriteR.id.toolbar_favorite))) {
             check(matches(isDisplayed()))
             check(matches(hasDescendant(withText("Favorite Marvel Movies"))))
         }
@@ -57,8 +58,8 @@ class FavoriteFragmentTest {
     @Test
     fun testEmptyTextForFavoritesIsEmptyOrRecyclerViewForFavoritesIsNotEmpty() = runTest {
         when (repository.getFavorites().first().isEmpty()) {
-            true -> onView((withId(R.id.tv_favorite_empty))).check(matches(isDisplayed()))
-            false -> onView((withId(R.id.rv_favorite))).check(matches(isDisplayed()))
+            true -> onView((withId(favoriteR.id.tv_favorite_empty))).check(matches(isDisplayed()))
+            false -> onView((withId(favoriteR.id.rv_favorite))).check(matches(isDisplayed()))
         }
     }
 }

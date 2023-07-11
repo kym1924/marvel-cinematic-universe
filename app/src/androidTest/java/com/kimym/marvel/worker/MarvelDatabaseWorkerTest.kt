@@ -9,7 +9,8 @@ import androidx.work.ListenableWorker.Result
 import androidx.work.testing.SynchronousExecutor
 import androidx.work.testing.TestListenableWorkerBuilder
 import androidx.work.testing.WorkManagerTestInitHelper
-import com.kimym.marvel.database.MarvelDao
+import com.kimym.marvel.core.database.MarvelDao
+import com.kimym.marvel.core.worker.MarvelDatabaseWorker
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.test.runTest

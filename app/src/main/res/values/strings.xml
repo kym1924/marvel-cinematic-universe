@@ -1,33 +1,3 @@
 <resources>
     <string name="app_name">MarvelCinematicUniverse</string>
-
-    <!-- fragment_movie -->
-    <string name="movie_toolbar_title">Marvel Cinematic Universe %s</string>
-
-    <!-- fragment_favorite-->
-    <string name="favorites_empty">Favorites are empty.</string>
-
-    <!-- fragment_detail -->
-    <string name="navigation_icon_content_description">Icon Pop Back Stack</string>
-    <string name="detail_release_and_running_time">%1$s / %2$d min</string>
-
-    <!-- dialog_rating -->
-    <string name="rating_title">Please enter your star rating for</string>
-
-    <!-- content_description -->
-    <string name="image_content_description">Image of Marvel Movie</string>
-    <string name="rating_content_description">Star rating for the movie</string>
-    <string name="floating_action_button_content_description">Navigate RatingDialog FloatingActionButton</string>
-
-    <!-- menu_bottom_navigation -->
-    <string name="movie">Movie</string>
-    <string name="favorite">Favorite</string>
-
-    <!-- menu_phase_filter -->
-    <string name="all">All</string>
-    <string name="phase_1">Phase 1</string>
-    <string name="phase_2">Phase 2</string>
-    <string name="phase_3">Phase 3</string>
-    <string name="phase_4">Phase 4</string>
-
 </resources>

@@ -1,4 +1,4 @@
-package com.kimym.marvel.ui.main
+package com.kimym.marvel
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
@@ -12,12 +12,13 @@ import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.kimym.marvel.R
+import com.kimym.marvel.core.ui.jankstats.getMetricsStateHolder
+import com.kimym.marvel.core.ui.jankstats.putState
 import com.kimym.marvel.databinding.ActivityMainBinding
-import com.kimym.marvel.util.getMetricsStateHolder
-import com.kimym.marvel.util.putState
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
+import com.kimym.marvel.feature.favorite.R as favoriteR
+import com.kimym.marvel.feature.movie.R as movieR
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -63,7 +64,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setBottomNavigationVisibility(destination: NavDestination) {
         when (destination.id) {
-            R.id.movieFragment, R.id.favoriteFragment -> setBottomNavigationShowAnimation()
+            movieR.id.movieFragment, favoriteR.id.favoriteFragment -> setBottomNavigationShowAnimation()
             else -> setBottomNavigationHideAnimation()
         }
     }
