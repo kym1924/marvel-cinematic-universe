@@ -7,8 +7,7 @@ import com.kimym.marvel.core.model.Rating
 
 @Database(
     entities = [Movie::class, Rating::class],
-    version = 1,
-    exportSchema = false
+    version = 1
 )
 abstract class MarvelDatabase : RoomDatabase() {
     abstract fun marvelDao(): MarvelDao
