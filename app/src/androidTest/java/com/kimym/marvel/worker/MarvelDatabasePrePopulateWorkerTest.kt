@@ -10,7 +10,7 @@ import androidx.work.testing.SynchronousExecutor
 import androidx.work.testing.TestListenableWorkerBuilder
 import androidx.work.testing.WorkManagerTestInitHelper
 import com.kimym.marvel.core.database.MarvelDao
-import com.kimym.marvel.core.worker.MarvelDatabaseWorker
+import com.kimym.marvel.core.worker.MarvelDatabasePrePopulateWorker
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.test.runTest
@@ -23,7 +23,7 @@ import javax.inject.Inject
 
 @HiltAndroidTest
 @RunWith(AndroidJUnit4::class)
-class MarvelDatabaseWorkerTest {
+class MarvelDatabasePrePopulateWorkerTest {
     @Inject
     lateinit var dao: MarvelDao
 
@@ -42,10 +42,10 @@ class MarvelDatabaseWorkerTest {
     }
 
     @Test
-    fun marvelDatabaseWorker_doWork_success() = runTest {
+    fun marvelDatabasePrePopulateWorker_doWork_success() = runTest {
         val context = InstrumentationRegistry.getInstrumentation().targetContext
-        val worker = TestListenableWorkerBuilder<MarvelDatabaseWorker>(context)
-            .setWorkerFactory(MarvelDatabaseWorkerFactory(dao))
+        val worker = TestListenableWorkerBuilder<MarvelDatabasePrePopulateWorker>(context)
+            .setWorkerFactory(MarvelDatabasePrePopulateWorkerFactory(dao))
             .build()
 
         assertThat(worker.doWork(), `is`(Result.success()))

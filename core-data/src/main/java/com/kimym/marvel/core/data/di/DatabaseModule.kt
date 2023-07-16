@@ -8,7 +8,7 @@ import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import com.kimym.marvel.core.database.MarvelDao
 import com.kimym.marvel.core.database.MarvelDatabase
-import com.kimym.marvel.core.worker.MarvelDatabaseWorker
+import com.kimym.marvel.core.worker.MarvelDatabasePrePopulateWorker
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,7 +30,7 @@ object DatabaseModule {
             object : RoomDatabase.Callback() {
                 override fun onCreate(db: SupportSQLiteDatabase) {
                     super.onCreate(db)
-                    val request = OneTimeWorkRequestBuilder<MarvelDatabaseWorker>().build()
+                    val request = OneTimeWorkRequestBuilder<MarvelDatabasePrePopulateWorker>().build()
                     WorkManager.getInstance(context).enqueue(request)
                 }
             }

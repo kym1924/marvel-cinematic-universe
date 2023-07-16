@@ -14,7 +14,7 @@ import dagger.assisted.AssistedInject
 import kotlinx.coroutines.coroutineScope
 
 @HiltWorker
-class MarvelDatabaseWorker @AssistedInject constructor(
+class MarvelDatabasePrePopulateWorker @AssistedInject constructor(
     @Assisted context: Context,
     @Assisted params: WorkerParameters,
     private val dao: MarvelDao
