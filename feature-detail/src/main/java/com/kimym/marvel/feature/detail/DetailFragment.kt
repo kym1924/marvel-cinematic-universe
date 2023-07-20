@@ -8,24 +8,15 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
 import com.kimym.marvel.core.ui.BaseFragment
 import com.kimym.marvel.core.ui.NavigateCallback
 import com.kimym.marvel.feature.detail.databinding.FragmentDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class DetailFragment : BaseFragment<FragmentDetailBinding>(R.layout.fragment_detail) {
-    private val args by navArgs<DetailFragmentArgs>()
-
-    @Inject
-    lateinit var viewModelAssistedFactory: DetailViewModel.DetailAssistedFactory
-
-    private val viewModel by viewModels<DetailViewModel> {
-        DetailViewModel.provideDetailAssistedFactory(viewModelAssistedFactory, args.id)
-    }
+    private val viewModel by viewModels<DetailViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

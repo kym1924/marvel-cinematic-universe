@@ -9,24 +9,14 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.kimym.marvel.feature.rating.databinding.DialogRatingBinding
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class RatingDialog : DialogFragment() {
     private var _binding: DialogRatingBinding? = null
     private val binding get() = requireNotNull(_binding)
-
-    private val args by navArgs<RatingDialogArgs>()
-
-    @Inject
-    lateinit var viewModelAssistedFactory: RatingViewModel.RatingAssistedFactory
-
-    private val viewModel by viewModels<RatingViewModel> {
-        RatingViewModel.provideRatingAssistedFactory(viewModelAssistedFactory, args.id)
-    }
+    private val viewModel by viewModels<RatingViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,

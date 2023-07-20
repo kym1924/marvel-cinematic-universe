@@ -1,22 +1,24 @@
 package com.kimym.marvel.feature.detail
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.kimym.marvel.data.detail.DetailRepository
 import com.kimym.marvel.data.rating.RatingRepository
-import dagger.assisted.Assisted
-import dagger.assisted.AssistedFactory
-import dagger.assisted.AssistedInject
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class DetailViewModel @AssistedInject constructor(
+@HiltViewModel
+class DetailViewModel @Inject constructor(
     detailRepository: DetailRepository,
     private val ratingRepository: RatingRepository,
-    @Assisted private val id: Int
+    savedStateHandle: SavedStateHandle
 ) : ViewModel() {
+    private val id: Int = savedStateHandle["id"] ?: 0
+
     val movie = detailRepository.getMovie(id)
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(), null)
 
@@ -33,25 +35,6 @@ class DetailViewModel @AssistedInject constructor(
         viewModelScope.launch {
             if (value != rating.value) {
                 ratingRepository.changeRating(id, value)
-            }
-        }
-    }
-
-    @AssistedFactory
-    interface DetailAssistedFactory {
-        fun create(id: Int): DetailViewModel
-    }
-
-    companion object {
-        fun provideDetailAssistedFactory(
-            assistedFactory: DetailAssistedFactory,
-            id: Int
-        ): ViewModelProvider.Factory {
-            return object : ViewModelProvider.Factory {
-                @Suppress("UNCHECKED_CAST")
-                override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                    return assistedFactory.create(id) as T
-                }
             }
         }
     }
