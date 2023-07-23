@@ -3,7 +3,7 @@ package com.kimym.marvel.feature.favorite
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
-import com.kimym.marvel.core.ui.BaseFragment
+import com.kimym.marvel.core.ui.fragment.BaseFragment
 import com.kimym.marvel.core.ui.jankstats.addOnScrollListenerForJankStats
 import com.kimym.marvel.core.ui.jankstats.getMetricsStateHolder
 import com.kimym.marvel.feature.favorite.databinding.FragmentFavoriteBinding

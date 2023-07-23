@@ -9,6 +9,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.kimym.marvel.core.ui.fragment.FragmentResultKey
 import com.kimym.marvel.feature.rating.databinding.DialogRatingBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -37,7 +38,7 @@ class RatingDialog : DialogFragment() {
 
     private fun initRatingBarChangeListener() {
         binding.ratingBar.setOnRatingBarChangeListener { _, value, _ ->
-            setFragmentResult("rating", bundleOf("rating" to value))
+            setFragmentResult(FragmentResultKey.KEY, bundleOf(FragmentResultKey.KEY to value))
             findNavController().popBackStack()
         }
     }

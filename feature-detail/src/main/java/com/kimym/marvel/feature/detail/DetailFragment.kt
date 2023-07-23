@@ -9,8 +9,9 @@ import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
-import com.kimym.marvel.core.ui.BaseFragment
 import com.kimym.marvel.core.ui.NavigateCallback
+import com.kimym.marvel.core.ui.fragment.BaseFragment
+import com.kimym.marvel.core.ui.fragment.FragmentResultKey
 import com.kimym.marvel.feature.detail.databinding.FragmentDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -56,8 +57,8 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(R.layout.fragment_det
     }
 
     private fun initFragmentResultListener() {
-        setFragmentResultListener("rating") { _, bundle ->
-            viewModel.insertRating(bundle.getFloat("rating"))
+        setFragmentResultListener(FragmentResultKey.KEY) { _, bundle ->
+            viewModel.insertRating(bundle.getFloat(FragmentResultKey.KEY))
             Snackbar.make(binding.root, "Star ratings are saved.", Snackbar.LENGTH_SHORT).show()
         }
     }
