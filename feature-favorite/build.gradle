@@ -29,9 +29,9 @@ android {
 }
 
 dependencies {
+    implementation(project(":core-data"))
     implementation(project(":core-model"))
     implementation(project(":core-ui"))
-    implementation(project(":data-favorite"))
 
     implementation(libs.androidx.fragment)
     implementation(libs.androidx.jank.stats)

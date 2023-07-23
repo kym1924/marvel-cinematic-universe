@@ -1,4 +1,4 @@
-package com.kimym.marvel.data.rating
+package com.kimym.marvel.core.data.repository
 
 import kotlinx.coroutines.flow.Flow
 

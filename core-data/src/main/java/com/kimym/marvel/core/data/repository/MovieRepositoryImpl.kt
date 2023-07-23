@@ -1,4 +1,4 @@
-package com.kimym.marvel.data.movie
+package com.kimym.marvel.core.data.repository
 
 import com.kimym.marvel.core.database.MarvelDao
 import com.kimym.marvel.core.model.MovieBasicInfo

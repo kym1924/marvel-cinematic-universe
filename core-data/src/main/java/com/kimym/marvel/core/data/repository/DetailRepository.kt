@@ -1,4 +1,4 @@
-package com.kimym.marvel.data.detail
+package com.kimym.marvel.core.data.repository
 
 import com.kimym.marvel.core.model.MovieDetailInfo
 import kotlinx.coroutines.flow.Flow

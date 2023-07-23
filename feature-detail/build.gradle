@@ -30,10 +30,9 @@ android {
 }
 
 dependencies {
+    implementation(project(":core-data"))
     implementation(project(":core-model"))
     implementation(project(":core-ui"))
-    implementation(project(":data-detail"))
-    implementation(project(":data-rating"))
 
     implementation(libs.androidx.fragment)
     implementation(libs.androidx.navigation)

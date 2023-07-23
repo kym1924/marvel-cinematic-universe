@@ -29,10 +29,6 @@ dependencies {
     implementation(project(":core-datastore"))
     implementation(project(":core-model"))
     implementation(project(":core-worker"))
-    implementation(project(":data-detail"))
-    implementation(project(":data-favorite"))
-    implementation(project(":data-movie"))
-    implementation(project(":data-rating"))
 
     implementation(libs.androidx.room)
     implementation(libs.androidx.room.runtime)

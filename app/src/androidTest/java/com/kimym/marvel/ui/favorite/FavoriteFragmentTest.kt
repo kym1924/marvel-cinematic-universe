@@ -10,7 +10,7 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.kimym.marvel.MainActivity
 import com.kimym.marvel.R
-import com.kimym.marvel.data.favorite.FavoriteRepository
+import com.kimym.marvel.core.data.repository.FavoriteRepository
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.flow.first

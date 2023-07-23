@@ -1,13 +1,13 @@
 package com.kimym.marvel.core.data.di
 
-import com.kimym.marvel.data.detail.DetailRepository
-import com.kimym.marvel.data.detail.DetailRepositoryImpl
-import com.kimym.marvel.data.favorite.FavoriteRepository
-import com.kimym.marvel.data.favorite.FavoriteRepositoryImpl
-import com.kimym.marvel.data.movie.MovieRepository
-import com.kimym.marvel.data.movie.MovieRepositoryImpl
-import com.kimym.marvel.data.rating.RatingRepository
-import com.kimym.marvel.data.rating.RatingRepositoryImpl
+import com.kimym.marvel.core.data.repository.DetailRepository
+import com.kimym.marvel.core.data.repository.DetailRepositoryImpl
+import com.kimym.marvel.core.data.repository.FavoriteRepository
+import com.kimym.marvel.core.data.repository.FavoriteRepositoryImpl
+import com.kimym.marvel.core.data.repository.MovieRepository
+import com.kimym.marvel.core.data.repository.MovieRepositoryImpl
+import com.kimym.marvel.core.data.repository.RatingRepository
+import com.kimym.marvel.core.data.repository.RatingRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

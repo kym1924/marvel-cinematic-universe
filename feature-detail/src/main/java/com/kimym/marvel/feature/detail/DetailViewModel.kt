@@ -3,8 +3,8 @@ package com.kimym.marvel.feature.detail
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.kimym.marvel.data.detail.DetailRepository
-import com.kimym.marvel.data.rating.RatingRepository
+import com.kimym.marvel.core.data.repository.DetailRepository
+import com.kimym.marvel.core.data.repository.RatingRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
