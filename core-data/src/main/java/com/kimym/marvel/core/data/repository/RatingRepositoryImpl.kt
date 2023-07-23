@@ -1,5 +1,6 @@
 package com.kimym.marvel.core.data.repository
 
+import com.kimym.marvel.core.data.di.IODispatcher
 import com.kimym.marvel.core.database.MarvelDao
 import com.kimym.marvel.core.model.Rating
 import kotlinx.coroutines.CoroutineDispatcher
@@ -9,7 +10,7 @@ import javax.inject.Inject
 
 class RatingRepositoryImpl @Inject constructor(
     private val dao: MarvelDao,
-    private val ioDispatcher: CoroutineDispatcher
+    @IODispatcher private val ioDispatcher: CoroutineDispatcher
 ) : RatingRepository {
     override fun getTitle(id: Int): Flow<String> {
         return dao.getTitle(id).flowOn(ioDispatcher)

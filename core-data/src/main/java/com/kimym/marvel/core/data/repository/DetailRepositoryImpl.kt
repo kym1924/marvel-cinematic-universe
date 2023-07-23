@@ -1,5 +1,6 @@
 package com.kimym.marvel.core.data.repository
 
+import com.kimym.marvel.core.data.di.IODispatcher
 import com.kimym.marvel.core.database.MarvelDao
 import com.kimym.marvel.core.model.MovieDetailInfo
 import kotlinx.coroutines.CoroutineDispatcher
@@ -9,7 +10,7 @@ import javax.inject.Inject
 
 class DetailRepositoryImpl @Inject constructor(
     private val dao: MarvelDao,
-    private val ioDispatcher: CoroutineDispatcher
+    @IODispatcher private val ioDispatcher: CoroutineDispatcher
 ) : DetailRepository {
     override fun getMovie(id: Int): Flow<MovieDetailInfo> {
         return dao.getMovie(id).flowOn(ioDispatcher)
