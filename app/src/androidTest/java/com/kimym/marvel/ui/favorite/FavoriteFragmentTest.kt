@@ -20,6 +20,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.RuleChain
 import javax.inject.Inject
+import com.kimym.marvel.core.ui.R as uiR
 import com.kimym.marvel.feature.favorite.R as favoriteR
 
 @HiltAndroidTest
@@ -43,7 +44,7 @@ class FavoriteFragmentTest {
     private fun bottomNavigationViewDefaultSelectedItem() {
         activityScenarioRule.scenario.onActivity { activity ->
             activity.findViewById<BottomNavigationView>(R.id.bottom_navigation)
-                .selectedItemId = favoriteR.id.favoriteFragment
+                .selectedItemId = uiR.id.favorite_nav_graph
         }
     }
 
@@ -51,7 +52,7 @@ class FavoriteFragmentTest {
     fun testToolbarTitleIsFavoriteMarvelMovies() {
         with(onView(withId(favoriteR.id.toolbar_favorite))) {
             check(matches(isDisplayed()))
-            check(matches(hasDescendant(withText("Favorite Marvel Movies"))))
+            check(matches(hasDescendant(withText(uiR.string.favorite_toolbar_title))))
         }
     }
 

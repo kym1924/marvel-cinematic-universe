@@ -1,8 +1,9 @@
 <resources>
     <!-- fragment_movie -->
-    <string name="movie_toolbar_title">Marvel Cinematic Universe %s</string>
+    <string name="movie_toolbar_title">Marvel Cinematic Universe</string>
 
     <!-- fragment_favorite-->
+    <string name="favorite_toolbar_title">Favorite Marvel Movies</string>
     <string name="favorites_empty">Favorites are empty.</string>
 
     <!-- fragment_detail -->
