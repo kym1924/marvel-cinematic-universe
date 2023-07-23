@@ -16,7 +16,6 @@ class MovieFragment : BaseFragment<FragmentMovieBinding>(R.layout.fragment_movie
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initBindingVariables()
-        initToolbarMenuClickListener()
         initScrollListenerForJankStats()
     }
 
@@ -25,13 +24,6 @@ class MovieFragment : BaseFragment<FragmentMovieBinding>(R.layout.fragment_movie
             vm = viewModel
             adapter = MovieAdapter()
             executePendingBindings()
-        }
-    }
-
-    private fun initToolbarMenuClickListener() {
-        binding.toolbarMovie.setOnMenuItemClickListener { menu ->
-            viewModel.setPhase(menu.itemId)
-            true
         }
     }
 

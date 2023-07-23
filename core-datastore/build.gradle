@@ -25,9 +25,6 @@ android {
 }
 
 dependencies {
-    implementation(project(":core-model"))
-    implementation(project(":core-ui"))
-
     implementation(libs.androidx.datastore.preferences)
 
     implementation(libs.hilt)

@@ -22,11 +22,4 @@
     <string name="movie">Movie</string>
     <string name="favorite">Favorite</string>
 
-    <!-- menu_phase_filter -->
-    <string name="all">All</string>
-    <string name="phase_1">Phase 1</string>
-    <string name="phase_2">Phase 2</string>
-    <string name="phase_3">Phase 3</string>
-    <string name="phase_4">Phase 4</string>
-
 </resources>
