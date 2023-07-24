@@ -2,7 +2,9 @@ package com.kimym.marvel.feature.detail
 
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import androidx.core.net.toUri
+import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavDeepLinkRequest
@@ -22,6 +24,8 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(R.layout.fragment_det
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initBindingVariables()
+        initLayoutParams(binding.appBarDetail)
+        initLayoutParams(binding.imgDetail)
         initToolbarNavigationClickListener()
         initRatingBarChangeListener()
         initFragmentResultListener()
@@ -41,6 +45,13 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(R.layout.fragment_det
                 .fromUri("marvel://rating?id=$id".toUri())
                 .build()
             view.findNavController().navigate(request)
+        }
+    }
+
+    private fun initLayoutParams(view: View) {
+        view.updateLayoutParams {
+            width = ViewGroup.LayoutParams.MATCH_PARENT
+            height = (resources.displayMetrics.heightPixels * 0.7).toInt()
         }
     }
 
