@@ -1,6 +1,7 @@
 [versions]
 gradlePlugin = "7.4.2"
 kotlin = "1.8.22"
+kotlinKsp = "1.8.22-1.0.11"
 ktlint = "11.5.1"
 
 androidxCore = "1.10.1"
@@ -70,6 +71,7 @@ android-application = { id = "com.android.application", version.ref = "gradlePlu
 android-library = { id = "com.android.library", version.ref = "gradlePlugin" }
 kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+kotlin-ksp = { id = "com.google.devtools.ksp", version.ref = "kotlinKsp" }
 navigation-safe-args = { id = "androidx.navigation.safeargs.kotlin", version.ref = "androidxNavigation" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }

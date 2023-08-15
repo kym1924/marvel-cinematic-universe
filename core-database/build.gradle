@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin)
-    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.kotlin.ksp)
     alias(libs.plugins.ktlint)
 }
 
@@ -11,10 +11,8 @@ android {
 
     defaultConfig {
         minSdk config.minSdk
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments += ["room.schemaLocation" : "$projectDir/schemas".toString()]
-            }
+        ksp {
+            arg("room.schemaLocation", "$projectDir/schemas")
         }
     }
 
@@ -33,5 +31,5 @@ dependencies {
 
     implementation(libs.androidx.room)
     implementation(libs.androidx.room.runtime)
-    kapt(libs.androidx.room.compiler)
+    ksp(libs.androidx.room.compiler)
 }
