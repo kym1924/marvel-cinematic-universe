@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<issues name="AGP (7.4.0)" by="lint 7.4.0" client="gradle" dependencies="false" format="6"
-    type="baseline" variant="all" version="7.4.0">
+<issues name="AGP (7.4.2)" by="lint 7.4.2" client="gradle" dependencies="false" format="6"
+    type="baseline" variant="all" version="7.4.2">
 
     <issue id="NotificationPermission"
         message="When targeting Android 13 or higher, posting a permission requires holding the `POST_NOTIFICATIONS` permission (usage from com.bumptech.glide.request.target.NotificationTarget)">
         <location file="src/main/AndroidManifest.xml" />
+    </issue>
+
+    <issue errorLine1="    app:startDestination=&quot;@id/movie_nav_graph&quot;>" errorLine2="                          ~~~~~~~~~~~~~~~~~~~"
+        id="InvalidNavigation"
+        message="Invalid start destination @id/movie_nav_graph">
+        <location column="27" file="src/main/res/navigation/nav_graph.xml" line="5" />
     </issue>
 
 </issues>
