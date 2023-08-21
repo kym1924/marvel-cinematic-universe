@@ -21,7 +21,7 @@ gson = "2.10.1"
 hilt = "2.47"
 material = "1.9.0"
 
-glide = "4.15.1"
+glide = "4.16.0"
 timber = "5.0.1"
 
 junit = "4.13.2"
