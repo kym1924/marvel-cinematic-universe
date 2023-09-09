@@ -7,26 +7,21 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
-import androidx.metrics.performance.JankStats
 import androidx.navigation.NavController
-import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.kimym.marvel.core.ui.jankstats.CURRENT_DESTINATION
+import com.kimym.marvel.core.ui.jankstats.JankStatsLifecycleEventObserver
 import com.kimym.marvel.core.ui.jankstats.getMetricsStateHolder
 import com.kimym.marvel.core.ui.jankstats.putState
 import com.kimym.marvel.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 import com.kimym.marvel.feature.favorite.R as favoriteR
 import com.kimym.marvel.feature.movie.R as movieR
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
-
-    private val holder by lazy { binding.getMetricsStateHolder() }
-
-    private lateinit var jankStats: JankStats
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,9 +33,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initJankStats() {
-        jankStats = JankStats.createAndTrack(window) { frameData ->
-            frameData.takeIf { it.isJank }?.let { Timber.d(frameData.toString()) }
-        }
+        lifecycle.addObserver(JankStatsLifecycleEventObserver(window))
     }
 
     private fun initBottomNavigationView() {
@@ -56,21 +49,21 @@ class MainActivity : AppCompatActivity() {
     private fun addOnDestinationChangedListener(navController: NavController): NavController {
         return navController.apply {
             addOnDestinationChangedListener { _, destination, _ ->
-                setBottomNavigationVisibility(destination)
-                putStateInMetricsStateHolder(destination)
+                setBottomNavigationVisibility(destination.id)
+                putStateInMetricsStateHolder(destination.label.toString())
             }
         }
     }
 
-    private fun setBottomNavigationVisibility(destination: NavDestination) {
-        when (destination.id) {
+    private fun setBottomNavigationVisibility(destinationId: Int) {
+        when (destinationId) {
             movieR.id.movieFragment, favoriteR.id.favoriteFragment -> setBottomNavigationShowAnimation()
             else -> setBottomNavigationHideAnimation()
         }
     }
 
-    private fun putStateInMetricsStateHolder(destination: NavDestination) {
-        holder.putState("CurrentDestination", "${destination.label}")
+    private fun putStateInMetricsStateHolder(destinationLabel: String) {
+        binding.getMetricsStateHolder().putState(CURRENT_DESTINATION, destinationLabel)
     }
 
     private fun setBottomNavigationShowAnimation() {
@@ -101,15 +94,5 @@ class MainActivity : AppCompatActivity() {
 
     private fun initDecorFitsSystemWindows() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
-    }
-
-    override fun onResume() {
-        super.onResume()
-        jankStats.isTrackingEnabled = true
-    }
-
-    override fun onPause() {
-        super.onPause()
-        jankStats.isTrackingEnabled = false
     }
 }
