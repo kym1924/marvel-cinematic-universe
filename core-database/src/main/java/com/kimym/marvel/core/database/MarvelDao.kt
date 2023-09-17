@@ -22,14 +22,7 @@ interface MarvelDao {
     @Query("SELECT id, title, image FROM Movie WHERE phase = :phase")
     fun getMoviesByPhase(phase: Int): Flow<List<MovieBasicInfo>>
 
-    @Query(
-        """
-            SELECT e.id, e.title, e.image, r.rating
-            FROM Movie AS e, Rating AS r
-            WHERE e.id = r.id
-            ORDER BY r.created_at DESC
-        """
-    )
+    @Query("SELECT * FROM MovieAndRating ORDER BY created_at DESC")
     fun getFavorites(): Flow<List<MovieAndRating>>
 
     @Query("SELECT id, title, content, `release`, running_time AS runningTime, image FROM Movie WHERE id = :id")
