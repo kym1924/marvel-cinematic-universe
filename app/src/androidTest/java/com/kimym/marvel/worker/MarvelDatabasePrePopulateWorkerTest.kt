@@ -9,7 +9,7 @@ import androidx.work.ListenableWorker.Result
 import androidx.work.testing.SynchronousExecutor
 import androidx.work.testing.TestListenableWorkerBuilder
 import androidx.work.testing.WorkManagerTestInitHelper
-import com.kimym.marvel.core.database.MarvelDao
+import com.kimym.marvel.core.database.dao.MovieDao
 import com.kimym.marvel.core.worker.MarvelDatabasePrePopulateWorker
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
@@ -25,7 +25,7 @@ import javax.inject.Inject
 @RunWith(AndroidJUnit4::class)
 class MarvelDatabasePrePopulateWorkerTest {
     @Inject
-    lateinit var dao: MarvelDao
+    lateinit var dao: MovieDao
 
     @get:Rule
     var rule = HiltAndroidRule(this)

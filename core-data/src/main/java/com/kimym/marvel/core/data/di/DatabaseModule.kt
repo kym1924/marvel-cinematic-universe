@@ -6,9 +6,11 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
-import com.kimym.marvel.core.database.MarvelDao
 import com.kimym.marvel.core.database.MarvelDatabase
 import com.kimym.marvel.core.database.MarvelDatabaseMigrations
+import com.kimym.marvel.core.database.dao.MovieAndRatingDao
+import com.kimym.marvel.core.database.dao.MovieDao
+import com.kimym.marvel.core.database.dao.RatingDao
 import com.kimym.marvel.core.worker.MarvelDatabasePrePopulateWorker
 import dagger.Module
 import dagger.Provides
@@ -42,7 +44,19 @@ object DatabaseModule {
 
     @Provides
     @Singleton
-    fun provideMarvelDao(db: MarvelDatabase): MarvelDao {
-        return db.marvelDao()
+    fun provideMovieDao(db: MarvelDatabase): MovieDao {
+        return db.movieDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideMovieAndRatingDao(db: MarvelDatabase): MovieAndRatingDao {
+        return db.movieAndRatingDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideRatingDao(db: MarvelDatabase): RatingDao {
+        return db.ratingDao()
     }
 }

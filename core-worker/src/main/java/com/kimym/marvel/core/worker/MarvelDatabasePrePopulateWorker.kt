@@ -7,7 +7,7 @@ import androidx.work.WorkerParameters
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.google.gson.stream.JsonReader
-import com.kimym.marvel.core.database.MarvelDao
+import com.kimym.marvel.core.database.dao.MovieDao
 import com.kimym.marvel.core.model.Movie
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
@@ -17,7 +17,7 @@ import kotlinx.coroutines.coroutineScope
 class MarvelDatabasePrePopulateWorker @AssistedInject constructor(
     @Assisted context: Context,
     @Assisted params: WorkerParameters,
-    private val dao: MarvelDao
+    private val dao: MovieDao
 ) : CoroutineWorker(context, params) {
     override suspend fun doWork(): Result {
         return coroutineScope {
