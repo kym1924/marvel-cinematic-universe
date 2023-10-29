@@ -3,8 +3,8 @@ package com.kimym.marvel.feature.detail
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.kimym.marvel.core.data.repository.DetailRepository
-import com.kimym.marvel.core.data.repository.RatingRepository
+import com.kimym.marvel.domain.repository.MovieRepository
+import com.kimym.marvel.domain.repository.RatingRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
@@ -13,13 +13,13 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailViewModel @Inject constructor(
-    detailRepository: DetailRepository,
+    movieRepository: MovieRepository,
     private val ratingRepository: RatingRepository,
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
     private val id: Int = savedStateHandle["id"] ?: 0
 
-    val movie = detailRepository.getMovie(id)
+    val movie = movieRepository.getMovie(id)
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(), null)
 
     val rating = ratingRepository.getRating(id)
@@ -34,7 +34,7 @@ class DetailViewModel @Inject constructor(
     fun changeRating(value: Float) {
         viewModelScope.launch {
             if (value != rating.value) {
-                ratingRepository.changeRating(id, value)
+                ratingRepository.updateRating(id, value)
             }
         }
     }
