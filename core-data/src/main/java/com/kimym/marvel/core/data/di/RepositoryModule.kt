@@ -1,9 +1,9 @@
 package com.kimym.marvel.core.data.di
 
-import com.kimym.marvel.core.data.repository.MovieRepository
 import com.kimym.marvel.core.data.repository.MovieRepositoryImpl
-import com.kimym.marvel.core.data.repository.RatingRepository
 import com.kimym.marvel.core.data.repository.RatingRepositoryImpl
+import com.kimym.marvel.domain.repository.MovieRepository
+import com.kimym.marvel.domain.repository.RatingRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

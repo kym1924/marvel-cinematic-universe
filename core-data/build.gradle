@@ -27,8 +27,8 @@ android {
 dependencies {
     implementation(project(":core-database"))
     implementation(project(":core-datastore"))
-    implementation(project(":core-model"))
     implementation(project(":core-worker"))
+    implementation(project(":domain"))
 
     implementation(libs.androidx.room)
     implementation(libs.androidx.room.runtime)
