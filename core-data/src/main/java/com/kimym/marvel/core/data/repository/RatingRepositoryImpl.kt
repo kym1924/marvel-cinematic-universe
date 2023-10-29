@@ -3,7 +3,7 @@ package com.kimym.marvel.core.data.repository
 import com.kimym.marvel.core.data.di.IODispatcher
 import com.kimym.marvel.core.database.dao.MovieDao
 import com.kimym.marvel.core.database.dao.RatingDao
-import com.kimym.marvel.core.model.Rating
+import com.kimym.marvel.core.database.entity.RatingEntity
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
@@ -23,7 +23,7 @@ class RatingRepositoryImpl @Inject constructor(
     }
 
     override suspend fun insertRating(id: Int, rating: Float) {
-        ratingDao.insertRating(Rating(id = id, rating = rating))
+        ratingDao.insertRating(RatingEntity(id = id, rating = rating))
     }
 
     override suspend fun changeRating(id: Int, rating: Float) {

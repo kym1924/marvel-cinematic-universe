@@ -3,7 +3,7 @@ package com.kimym.marvel.core.database.dao
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.kimym.marvel.core.model.Rating
+import com.kimym.marvel.core.database.entity.RatingEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -12,7 +12,7 @@ interface RatingDao {
     fun getRating(id: Int): Flow<Float>
 
     @Insert
-    suspend fun insertRating(rating: Rating)
+    suspend fun insertRating(rating: RatingEntity)
 
     @Query("UPDATE Rating SET rating = :rating WHERE id = :id")
     suspend fun updateRating(id: Int, rating: Float)

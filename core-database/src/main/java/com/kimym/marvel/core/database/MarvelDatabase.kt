@@ -6,11 +6,11 @@ import com.kimym.marvel.core.database.dao.MovieAndRatingDao
 import com.kimym.marvel.core.database.dao.MovieDao
 import com.kimym.marvel.core.database.dao.RatingDao
 import com.kimym.marvel.core.database.entity.MovieEntity
+import com.kimym.marvel.core.database.entity.RatingEntity
 import com.kimym.marvel.core.model.MovieAndRating
-import com.kimym.marvel.core.model.Rating
 
 @Database(
-    entities = [MovieEntity::class, Rating::class],
+    entities = [MovieEntity::class, RatingEntity::class],
     views = [MovieAndRating::class],
     version = 2
 )
