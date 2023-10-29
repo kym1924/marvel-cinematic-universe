@@ -17,6 +17,8 @@ androidxHiltWorkManager = "1.0.0"
 androidxJankStats = "1.0.0-alpha04"
 androidxSplash = "1.0.1"
 
+kotlinCoroutines = "1.7.3"
+
 gson = "2.10.1"
 hilt = "2.47"
 material = "1.9.0"
@@ -47,6 +49,8 @@ androidx-hilt-compiler = { module = "androidx.hilt:hilt-compiler", version.ref =
 androidx-jank-stats = { module = "androidx.metrics:metrics-performance", version.ref = "androidxJankStats" }
 androidx-splash = { module = "androidx.core:core-splashscreen", version.ref = "androidxSplash" }
 
+kotlin-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinCoroutines" }
+
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 hilt = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
@@ -70,6 +74,7 @@ hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", ve
 android-application = { id = "com.android.application", version.ref = "gradlePlugin" }
 android-library = { id = "com.android.library", version.ref = "gradlePlugin" }
 kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 kotlin-ksp = { id = "com.google.devtools.ksp", version.ref = "kotlinKsp" }
 navigation-safe-args = { id = "androidx.navigation.safeargs.kotlin", version.ref = "androidxNavigation" }
