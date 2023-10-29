@@ -3,7 +3,7 @@ package com.kimym.marvel.feature.rating
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.kimym.marvel.core.data.repository.RatingRepository
+import com.kimym.marvel.domain.repository.MovieRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
@@ -11,11 +11,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RatingViewModel @Inject constructor(
-    repository: RatingRepository,
+    movieRepository: MovieRepository,
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
     private val id: Int = savedStateHandle["id"] ?: 0
 
-    val title = repository.getTitle(id)
+    val title = movieRepository.getMovieTitle(id)
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(), "")
 }
