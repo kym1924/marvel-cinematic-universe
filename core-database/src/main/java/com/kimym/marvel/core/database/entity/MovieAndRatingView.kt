@@ -1,11 +1,14 @@
-package com.kimym.marvel.core.model
+package com.kimym.marvel.core.database.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.DatabaseView
-import com.kimym.marvel.core.model.MovieAndRating.Companion.QUERY
+import com.kimym.marvel.core.database.entity.MovieAndRatingView.Companion.QUERY
 
-@DatabaseView(QUERY)
-data class MovieAndRating(
+@DatabaseView(
+    value = QUERY,
+    viewName = "MovieAndRating"
+)
+data class MovieAndRatingView(
     val id: Int,
     val title: String,
     val image: String,

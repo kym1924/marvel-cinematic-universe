@@ -5,13 +5,13 @@ import androidx.room.RoomDatabase
 import com.kimym.marvel.core.database.dao.MovieAndRatingDao
 import com.kimym.marvel.core.database.dao.MovieDao
 import com.kimym.marvel.core.database.dao.RatingDao
+import com.kimym.marvel.core.database.entity.MovieAndRatingView
 import com.kimym.marvel.core.database.entity.MovieEntity
 import com.kimym.marvel.core.database.entity.RatingEntity
-import com.kimym.marvel.core.model.MovieAndRating
 
 @Database(
     entities = [MovieEntity::class, RatingEntity::class],
-    views = [MovieAndRating::class],
+    views = [MovieAndRatingView::class],
     version = 2
 )
 abstract class MarvelDatabase : RoomDatabase() {
