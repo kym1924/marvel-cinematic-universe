@@ -4,9 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.ListAdapter
-import com.kimym.marvel.core.model.MovieAndRating
 import com.kimym.marvel.core.ui.recyclerview.BaseDiffUtilItemCallback
 import com.kimym.marvel.core.ui.recyclerview.BaseViewHolder
+import com.kimym.marvel.domain.model.MovieAndRating
 import com.kimym.marvel.feature.favorite.databinding.ItemFavoriteBinding
 
 class FavoriteAdapter :

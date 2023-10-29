@@ -7,7 +7,7 @@
 
         <variable
             name="model"
-            type="com.kimym.marvel.core.model.MovieAndRating" />
+            type="com.kimym.marvel.domain.model.MovieAndRating" />
 
         <variable
             name="callback"

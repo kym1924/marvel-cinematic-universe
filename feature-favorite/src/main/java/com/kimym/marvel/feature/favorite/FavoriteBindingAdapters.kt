@@ -2,7 +2,7 @@ package com.kimym.marvel.feature.favorite
 
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.kimym.marvel.core.model.MovieAndRating
+import com.kimym.marvel.domain.model.MovieAndRating
 
 @BindingAdapter("initRvFavorite")
 fun RecyclerView.init(adapter: FavoriteAdapter) {
