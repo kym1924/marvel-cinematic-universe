@@ -4,12 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.ListAdapter
-import com.kimym.marvel.core.model.MovieBasicInfo
 import com.kimym.marvel.core.ui.recyclerview.BaseDiffUtilItemCallback
 import com.kimym.marvel.core.ui.recyclerview.BaseViewHolder
+import com.kimym.marvel.domain.model.Movie
 import com.kimym.marvel.feature.movie.databinding.ItemMovieBinding
 
-class MovieAdapter : ListAdapter<MovieBasicInfo, MovieAdapter.MovieViewHolder<ItemMovieBinding>>(
+class MovieAdapter : ListAdapter<Movie, MovieAdapter.MovieViewHolder<ItemMovieBinding>>(
     BaseDiffUtilItemCallback(
         areItemsSame = { oldItem, newItem -> oldItem.id == newItem.id },
         areContentsSame = { oldItem, newItem -> oldItem == newItem }
@@ -34,7 +34,7 @@ class MovieAdapter : ListAdapter<MovieBasicInfo, MovieAdapter.MovieViewHolder<It
     class MovieViewHolder<T : ViewDataBinding>(
         binding: T
     ) : BaseViewHolder<T>(binding) {
-        fun bind(model: MovieBasicInfo) {
+        fun bind(model: Movie) {
             with(binding) {
                 setVariable(BR.model, model)
                 setVariable(BR.callback, callback)

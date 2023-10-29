@@ -2,7 +2,7 @@ package com.kimym.marvel.feature.movie
 
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.kimym.marvel.core.model.MovieBasicInfo
+import com.kimym.marvel.domain.model.Movie
 
 @BindingAdapter("initRvMovie")
 fun RecyclerView.init(adapter: MovieAdapter) {
@@ -10,6 +10,6 @@ fun RecyclerView.init(adapter: MovieAdapter) {
 }
 
 @BindingAdapter("submitMovies")
-fun RecyclerView.submitMovies(movies: List<MovieBasicInfo>) {
+fun RecyclerView.submitMovies(movies: List<Movie>) {
     (adapter as? MovieAdapter)?.submitList(movies)
 }
