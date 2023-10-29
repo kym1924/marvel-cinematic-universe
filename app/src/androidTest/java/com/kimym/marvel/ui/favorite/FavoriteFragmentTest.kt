@@ -10,7 +10,7 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.kimym.marvel.MainActivity
 import com.kimym.marvel.R
-import com.kimym.marvel.core.data.repository.FavoriteRepository
+import com.kimym.marvel.domain.repository.MovieRepository
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.flow.first
@@ -26,7 +26,7 @@ import com.kimym.marvel.feature.favorite.R as favoriteR
 @HiltAndroidTest
 class FavoriteFragmentTest {
     @Inject
-    lateinit var repository: FavoriteRepository
+    lateinit var repository: MovieRepository
 
     private var hiltRule = HiltAndroidRule(this)
 
@@ -58,7 +58,7 @@ class FavoriteFragmentTest {
 
     @Test
     fun testEmptyTextForFavoritesIsEmptyOrRecyclerViewForFavoritesIsNotEmpty() = runTest {
-        when (repository.getFavorites().first().isEmpty()) {
+        when (repository.getMovieAndRatings().first().isEmpty()) {
             true -> onView((withId(favoriteR.id.tv_favorite_empty))).check(matches(isDisplayed()))
             false -> onView((withId(favoriteR.id.rv_favorite))).check(matches(isDisplayed()))
         }

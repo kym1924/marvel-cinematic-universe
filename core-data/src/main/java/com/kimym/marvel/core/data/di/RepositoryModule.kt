@@ -1,9 +1,5 @@
 package com.kimym.marvel.core.data.di
 
-import com.kimym.marvel.core.data.repository.DetailRepository
-import com.kimym.marvel.core.data.repository.DetailRepositoryImpl
-import com.kimym.marvel.core.data.repository.FavoriteRepository
-import com.kimym.marvel.core.data.repository.FavoriteRepositoryImpl
 import com.kimym.marvel.core.data.repository.MovieRepository
 import com.kimym.marvel.core.data.repository.MovieRepositoryImpl
 import com.kimym.marvel.core.data.repository.RatingRepository
@@ -22,18 +18,6 @@ abstract class RepositoryModule {
     abstract fun bindMovieRepository(
         movieRepositoryImpl: MovieRepositoryImpl
     ): MovieRepository
-
-    @Binds
-    @Singleton
-    abstract fun bindFavoriteRepository(
-        favoriteRepositoryImpl: FavoriteRepositoryImpl
-    ): FavoriteRepository
-
-    @Binds
-    @Singleton
-    abstract fun bindDetailRepository(
-        detailRepositoryImpl: DetailRepositoryImpl
-    ): DetailRepository
 
     @Binds
     @Singleton

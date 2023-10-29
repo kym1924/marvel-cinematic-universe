@@ -15,7 +15,7 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.kimym.marvel.MainActivity
 import com.kimym.marvel.R
-import com.kimym.marvel.core.data.repository.RatingRepository
+import com.kimym.marvel.domain.repository.RatingRepository
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.flow.firstOrNull

@@ -51,6 +51,7 @@ dependencies {
     implementation(project(":core-database"))
     implementation(project(":core-ui"))
     implementation(project(":core-worker"))
+    implementation(project(":domain"))
     implementation(project(":feature-detail"))
     implementation(project(":feature-favorite"))
     implementation(project(":feature-movie"))
