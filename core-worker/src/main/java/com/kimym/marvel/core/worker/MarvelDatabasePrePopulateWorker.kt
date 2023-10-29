@@ -8,7 +8,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.google.gson.stream.JsonReader
 import com.kimym.marvel.core.database.dao.MovieDao
-import com.kimym.marvel.core.model.Movie
+import com.kimym.marvel.core.database.entity.MovieEntity
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.coroutineScope
@@ -24,8 +24,8 @@ class MarvelDatabasePrePopulateWorker @AssistedInject constructor(
             try {
                 applicationContext.assets.open("marvel.json").use { inputStream ->
                     JsonReader(inputStream.reader()).use { jsonReader ->
-                        val type = object : TypeToken<List<Movie>>() {}.type
-                        val list: List<Movie> = Gson().fromJson(jsonReader, type)
+                        val type = object : TypeToken<List<MovieEntity>>() {}.type
+                        val list: List<MovieEntity> = Gson().fromJson(jsonReader, type)
                         dao.insertMovies(movies = list)
                     }
                 }

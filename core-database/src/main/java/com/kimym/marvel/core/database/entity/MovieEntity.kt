@@ -1,11 +1,11 @@
-package com.kimym.marvel.core.model
+package com.kimym.marvel.core.database.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity
-data class Movie(
+@Entity("Movie")
+data class MovieEntity(
     @PrimaryKey val id: Int,
     val title: String,
     val phase: Int,
