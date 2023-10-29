@@ -1,7 +1,7 @@
-package com.kimym.marvel.core.data.di
+package com.kimym.marvel.data.di
 
-import com.kimym.marvel.core.data.repository.MovieRepositoryImpl
-import com.kimym.marvel.core.data.repository.RatingRepositoryImpl
+import com.kimym.marvel.data.repository.MovieRepositoryImpl
+import com.kimym.marvel.data.repository.RatingRepositoryImpl
 import com.kimym.marvel.domain.repository.MovieRepository
 import com.kimym.marvel.domain.repository.RatingRepository
 import dagger.Binds

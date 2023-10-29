@@ -14,12 +14,12 @@ dependencyResolutionManagement {
 }
 rootProject.name = "MarvelCinematicUniverse"
 include ':app'
-include ':core-data'
 include ':core-database'
 include ':core-datastore'
 include ':core-model'
 include ':core-ui'
 include ':core-worker'
+include ':data'
 include ':domain'
 include ':feature-detail'
 include ':feature-favorite'

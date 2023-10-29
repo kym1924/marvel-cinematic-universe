@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace 'com.kimym.marvel.core.data'
+    namespace 'com.kimym.marvel.data'
     compileSdk config.compileSdk
 
     defaultConfig {

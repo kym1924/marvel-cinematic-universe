@@ -1,8 +1,8 @@
-package com.kimym.marvel.core.data.repository
+package com.kimym.marvel.data.repository
 
-import com.kimym.marvel.core.data.di.IODispatcher
 import com.kimym.marvel.core.database.dao.RatingDao
 import com.kimym.marvel.core.database.entity.RatingEntity
+import com.kimym.marvel.data.di.IODispatcher
 import com.kimym.marvel.domain.repository.RatingRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow

@@ -1,4 +1,4 @@
-package com.kimym.marvel.core.data.di
+package com.kimym.marvel.data.di
 
 import android.content.Context
 import com.kimym.marvel.core.datastore.MarvelDatastore

@@ -1,8 +1,8 @@
-package com.kimym.marvel.core.data.repository
+package com.kimym.marvel.data.repository
 
-import com.kimym.marvel.core.data.di.IODispatcher
 import com.kimym.marvel.core.database.dao.MovieAndRatingDao
 import com.kimym.marvel.core.database.dao.MovieDao
+import com.kimym.marvel.data.di.IODispatcher
 import com.kimym.marvel.domain.model.Movie
 import com.kimym.marvel.domain.model.MovieAndRating
 import com.kimym.marvel.domain.model.MovieDetail
