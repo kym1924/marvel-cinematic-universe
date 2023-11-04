@@ -20,7 +20,7 @@ androidxSplash = "1.0.1"
 kotlinCoroutines = "1.7.3"
 
 gson = "2.10.1"
-hilt = "2.47"
+hilt = "2.48.1"
 material = "1.9.0"
 
 glide = "4.16.0"
