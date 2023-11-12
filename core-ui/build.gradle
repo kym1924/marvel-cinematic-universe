@@ -32,7 +32,6 @@ dependencies {
     implementation(libs.androidx.jank.stats)
     implementation(libs.androidx.navigation)
     implementation(libs.androidx.navigation.ui)
-    implementation(libs.androidx.splash)
 
     implementation(libs.glide)
     implementation(libs.material)
