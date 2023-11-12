@@ -1,6 +1,6 @@
 package com.kimym.marvel.core.ui.jankstats
 
-import androidx.databinding.ViewDataBinding
+import android.view.View
 import androidx.metrics.performance.PerformanceMetricsState
 import androidx.recyclerview.widget.RecyclerView
 
@@ -9,8 +9,8 @@ private const val RECYCLER_VIEW = "RecyclerView"
 private const val DRAGGING = "Dragging"
 private const val SETTLING = "Settling"
 
-fun ViewDataBinding.getMetricsStateHolder(): PerformanceMetricsState.Holder {
-    return PerformanceMetricsState.getHolderForHierarchy(root)
+fun View.getMetricsStateHolder(): PerformanceMetricsState.Holder {
+    return PerformanceMetricsState.getHolderForHierarchy(this)
 }
 
 fun PerformanceMetricsState.Holder.putState(

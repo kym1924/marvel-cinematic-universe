@@ -28,7 +28,7 @@ class MovieFragment : BaseFragment<FragmentMovieBinding>(R.layout.fragment_movie
     }
 
     private fun initScrollListenerForJankStats() {
-        val holder = binding.getMetricsStateHolder()
+        val holder = binding.root.getMetricsStateHolder()
         binding.rvMovie.addOnScrollListenerForJankStats(holder)
     }
 }

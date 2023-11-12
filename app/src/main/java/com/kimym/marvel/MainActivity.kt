@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun putStateInMetricsStateHolder(destinationLabel: String) {
-        binding.getMetricsStateHolder().putState(CURRENT_DESTINATION, destinationLabel)
+        binding.root.getMetricsStateHolder().putState(CURRENT_DESTINATION, destinationLabel)
     }
 
     private fun setBottomNavigationShowAnimation() {
