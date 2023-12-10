@@ -13,7 +13,7 @@ androidxFragment = "1.6.2"
 androidxNavigation = "2.7.5"
 androidxRoom = "2.5.2"
 androidxWorkManager = "2.8.1"
-androidxHiltWorkManager = "1.0.0"
+androidxHiltWorkManager = "1.1.0"
 androidxJankStats = "1.0.0-alpha04"
 androidxSplash = "1.0.1"
 
