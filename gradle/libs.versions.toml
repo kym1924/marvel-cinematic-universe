@@ -21,7 +21,7 @@ kotlinCoroutines = "1.7.3"
 
 gson = "2.10.1"
 hilt = "2.49"
-material = "1.10.0"
+material = "1.11.0"
 
 glide = "4.16.0"
 timber = "5.0.1"
