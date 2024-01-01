@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin)
-    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.kotlin.ksp)
     alias(libs.plugins.hilt)
     alias(libs.plugins.ktlint)
 }
@@ -29,9 +29,9 @@ dependencies {
 
     implementation(libs.androidx.workmanager)
     implementation(libs.androidx.hilt.workmanager)
-    kapt(libs.androidx.hilt.compiler)
+    ksp(libs.androidx.hilt.compiler)
 
     implementation(libs.gson)
     implementation(libs.hilt)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
 }

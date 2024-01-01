@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin)
     alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.kotlin.ksp)
     alias(libs.plugins.navigation.safe.args)
     alias(libs.plugins.hilt)
     alias(libs.plugins.ktlint)
@@ -38,5 +39,5 @@ dependencies {
     implementation(libs.androidx.navigation.ui)
 
     implementation(libs.hilt)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
 }
