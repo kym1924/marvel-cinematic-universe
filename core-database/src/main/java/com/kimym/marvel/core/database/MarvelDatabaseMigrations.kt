@@ -6,8 +6,8 @@ import com.kimym.marvel.core.database.entity.MovieAndRatingView
 
 object MarvelDatabaseMigrations {
     val MIGRATION_1_2 = object : Migration(1, 2) {
-        override fun migrate(database: SupportSQLiteDatabase) {
-            database.execSQL("CREATE VIEW `MovieAndRating` AS " + MovieAndRatingView.QUERY)
+        override fun migrate(db: SupportSQLiteDatabase) {
+            db.execSQL("CREATE VIEW `MovieAndRating` AS " + MovieAndRatingView.QUERY)
         }
     }
 }
