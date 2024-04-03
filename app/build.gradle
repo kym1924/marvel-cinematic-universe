@@ -22,6 +22,10 @@ android {
         testInstrumentationRunner "com.kimym.marvel.MarvelTestRunner"
     }
 
+    sourceSets {
+        androidTest.assets.srcDirs += files("../core-database/schemas")
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -90,6 +94,7 @@ dependencies {
     implementation(libs.androidx.espresso.contrib)
 
     androidTestImplementation(libs.androidx.navigation.test)
+    androidTestImplementation(libs.androidx.room.test)
     androidTestImplementation(libs.androidx.workmanager.test)
 
     androidTestImplementation(libs.coroutines.test)
