@@ -1,6 +1,9 @@
-package com.kimym.marvel.worker
+package com.kimym.marvel.core
 
+import android.content.Context
 import android.util.Log
+import androidx.room.Room
+import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.matcher.ViewMatchers.assertThat
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
@@ -9,30 +12,34 @@ import androidx.work.ListenableWorker.Result
 import androidx.work.testing.SynchronousExecutor
 import androidx.work.testing.TestListenableWorkerBuilder
 import androidx.work.testing.WorkManagerTestInitHelper
+import com.kimym.marvel.core.database.MarvelDatabase
 import com.kimym.marvel.core.database.dao.MovieDao
 import com.kimym.marvel.core.worker.MarvelDatabasePrePopulateWorker
-import dagger.hilt.android.testing.HiltAndroidRule
-import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.test.runTest
 import org.hamcrest.CoreMatchers.`is`
+import org.junit.After
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import javax.inject.Inject
 
-@HiltAndroidTest
 @RunWith(AndroidJUnit4::class)
 class MarvelDatabasePrePopulateWorkerTest {
-    @Inject
-    lateinit var dao: MovieDao
-
-    @get:Rule
-    var rule = HiltAndroidRule(this)
+    private lateinit var movieDao: MovieDao
+    private lateinit var db: MarvelDatabase
 
     @Before
     fun setUp() {
-        rule.inject()
+        createDb()
+        initWorkManager()
+    }
+
+    private fun createDb() {
+        val context = ApplicationProvider.getApplicationContext<Context>()
+        db = Room.inMemoryDatabaseBuilder(context, MarvelDatabase::class.java).build()
+        movieDao = db.movieDao()
+    }
+
+    private fun initWorkManager() {
         val context = InstrumentationRegistry.getInstrumentation().targetContext
         val config = Configuration.Builder()
             .setMinimumLoggingLevel(Log.DEBUG)
@@ -41,11 +48,16 @@ class MarvelDatabasePrePopulateWorkerTest {
         WorkManagerTestInitHelper.initializeTestWorkManager(context, config)
     }
 
+    @After
+    fun closeDb() {
+        db.close()
+    }
+
     @Test
     fun marvelDatabasePrePopulateWorker_doWork_success() = runTest {
         val context = InstrumentationRegistry.getInstrumentation().targetContext
         val worker = TestListenableWorkerBuilder<MarvelDatabasePrePopulateWorker>(context)
-            .setWorkerFactory(MarvelDatabasePrePopulateWorkerFactory(dao))
+            .setWorkerFactory(MarvelDatabasePrePopulateWorkerFactory(movieDao))
             .build()
 
         assertThat(worker.doWork(), `is`(Result.success()))

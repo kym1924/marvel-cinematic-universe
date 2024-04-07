@@ -1,4 +1,4 @@
-package com.kimym.marvel.worker
+package com.kimym.marvel.core
 
 import android.content.Context
 import androidx.work.ListenableWorker

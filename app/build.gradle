@@ -96,7 +96,6 @@ dependencies {
 
     androidTestImplementation(libs.androidx.navigation.test)
     androidTestImplementation(libs.androidx.room.test)
-    androidTestImplementation(libs.androidx.workmanager.test)
 
     androidTestImplementation(libs.coroutines.test)
     androidTestImplementation(libs.hilt.test)
