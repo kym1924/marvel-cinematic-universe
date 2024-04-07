@@ -16,6 +16,7 @@ rootProject.name = "MarvelCinematicUniverse"
 include ':app'
 include ':core-database'
 include ':core-datastore'
+include ':core-test'
 include ':core-ui'
 include ':core-worker'
 include ':data'

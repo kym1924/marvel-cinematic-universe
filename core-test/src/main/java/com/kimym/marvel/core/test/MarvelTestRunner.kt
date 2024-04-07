@@ -1,4 +1,4 @@
-package com.kimym.marvel
+package com.kimym.marvel.core.test
 
 import android.app.Application
 import android.content.Context
