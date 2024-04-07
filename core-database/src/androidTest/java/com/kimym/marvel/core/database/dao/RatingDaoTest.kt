@@ -1,4 +1,4 @@
-package com.kimym.marvel.database
+package com.kimym.marvel.core.database.dao
 
 import android.content.Context
 import androidx.room.Room
@@ -6,7 +6,6 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.matcher.ViewMatchers.assertThat
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.kimym.marvel.core.database.MarvelDatabase
-import com.kimym.marvel.core.database.dao.RatingDao
 import com.kimym.marvel.core.database.entity.RatingEntity
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
