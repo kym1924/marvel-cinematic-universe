@@ -1,4 +1,4 @@
-package com.kimym.marvel.database
+package com.kimym.marvel.core.database.migration
 
 import androidx.room.testing.MigrationTestHelper
 import androidx.test.espresso.matcher.ViewMatchers.assertThat
