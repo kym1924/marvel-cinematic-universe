@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.Log
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
-import androidx.test.espresso.matcher.ViewMatchers.assertThat
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.work.Configuration
@@ -16,8 +15,8 @@ import com.kimym.marvel.core.database.MarvelDatabase
 import com.kimym.marvel.core.database.dao.MovieDao
 import com.kimym.marvel.core.worker.MarvelDatabasePrePopulateWorker
 import kotlinx.coroutines.test.runTest
-import org.hamcrest.CoreMatchers.`is`
 import org.junit.After
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -60,6 +59,6 @@ class MarvelDatabasePrePopulateWorkerTest {
             .setWorkerFactory(MarvelDatabasePrePopulateWorkerFactory(movieDao))
             .build()
 
-        assertThat(worker.doWork(), `is`(Result.success()))
+        assertEquals(Result.success(), worker.doWork())
     }
 }
