@@ -3,15 +3,14 @@ package com.kimym.marvel.core.database.dao
 import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
-import androidx.test.espresso.matcher.ViewMatchers.assertThat
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.kimym.marvel.core.database.MarvelDatabase
 import com.kimym.marvel.core.database.entity.MovieEntity
 import com.kimym.marvel.core.database.entity.RatingEntity
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
-import org.hamcrest.CoreMatchers.`is`
 import org.junit.After
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -57,19 +56,19 @@ class MovieAndRatingDaoTest {
 
         val movieAndRatings = movieAndRatingDao.getMovieAndRatings().first()
 
-        assertThat(
+        assertEquals(
             movieAndRatings.map { entity -> entity.title },
-            `is`(movies.map { entity -> entity.title })
+            movies.map { entity -> entity.title }
         )
 
-        assertThat(
+        assertEquals(
             movieAndRatings.map { entity -> entity.id },
-            `is`(movies.map { entity -> entity.id })
+            movies.map { entity -> entity.id }
         )
 
-        assertThat(
+        assertEquals(
             movieAndRatings.map { entity -> entity.rating },
-            `is`(ratings.map { entity -> entity.rating })
+            ratings.map { entity -> entity.rating }
         )
     }
 
