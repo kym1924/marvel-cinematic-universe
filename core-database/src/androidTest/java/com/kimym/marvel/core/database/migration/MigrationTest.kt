@@ -1,12 +1,12 @@
 package com.kimym.marvel.core.database.migration
 
 import androidx.room.testing.MigrationTestHelper
-import androidx.test.espresso.matcher.ViewMatchers.assertThat
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.kimym.marvel.core.database.MarvelDatabase
 import com.kimym.marvel.core.database.MarvelDatabaseMigrations.MIGRATION_1_2
-import org.hamcrest.CoreMatchers.`is`
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -27,13 +27,13 @@ class MigrationTest {
 
         helper.createDatabase(databaseName, 1).use { db ->
             db.query(query).use { cursor ->
-                assertThat(cursor.moveToFirst(), `is`(false))
+                assertFalse(cursor.moveToFirst())
             }
         }
 
         helper.runMigrationsAndValidate(databaseName, 2, true, MIGRATION_1_2).use { db ->
             db.query(query).use { cursor ->
-                assertThat(cursor.moveToFirst(), `is`(true))
+                assertTrue(cursor.moveToFirst())
             }
         }
     }
