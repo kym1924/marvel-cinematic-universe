@@ -3,14 +3,13 @@ package com.kimym.marvel.core.database.dao
 import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
-import androidx.test.espresso.matcher.ViewMatchers.assertThat
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.kimym.marvel.core.database.MarvelDatabase
 import com.kimym.marvel.core.database.entity.MovieEntity
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
-import org.hamcrest.CoreMatchers.`is`
 import org.junit.After
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -42,7 +41,7 @@ class MovieDaoTest {
 
         movieDao.insertMovies(movies)
 
-        assertThat(movies, `is`(movieDao.getMovies().first()))
+        assertEquals(movies, movieDao.getMovies().first())
     }
 
     @Test
@@ -57,7 +56,7 @@ class MovieDaoTest {
 
         val entity = movies.random()
 
-        assertThat(entity, `is`(movieDao.getMovie(entity.id).first()))
+        assertEquals(entity, movieDao.getMovie(entity.id).first())
     }
 
     @Test
@@ -72,7 +71,7 @@ class MovieDaoTest {
 
         val entity = movies.random()
 
-        assertThat(entity.title, `is`(movieDao.getMovieTitle(entity.id).first()))
+        assertEquals(entity.title, movieDao.getMovieTitle(entity.id).first())
     }
 
     private fun movieEntity(
