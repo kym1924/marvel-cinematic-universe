@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import androidx.test.platform.app.InstrumentationRegistry
 import androidx.work.ListenableWorker.Result
 import androidx.work.testing.TestListenableWorkerBuilder
 import com.kimym.marvel.core.database.MarvelDatabase
@@ -19,12 +18,13 @@ import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
 class MarvelDatabasePrePopulateWorkerTest {
-    private lateinit var movieDao: MovieDao
+    private lateinit var context: Context
     private lateinit var db: MarvelDatabase
+    private lateinit var movieDao: MovieDao
 
     @Before
     fun setUp() {
-        val context = ApplicationProvider.getApplicationContext<Context>()
+        context = ApplicationProvider.getApplicationContext()
         db = Room.inMemoryDatabaseBuilder(context, MarvelDatabase::class.java).build()
         movieDao = db.movieDao()
     }
@@ -36,7 +36,6 @@ class MarvelDatabasePrePopulateWorkerTest {
 
     @Test
     fun marvelDatabasePrePopulateWorker_doWork_success() = runTest {
-        val context = InstrumentationRegistry.getInstrumentation().targetContext
         val worker = TestListenableWorkerBuilder<MarvelDatabasePrePopulateWorker>(context)
             .setWorkerFactory(MarvelDatabasePrePopulateWorkerFactory(movieDao))
             .build()
