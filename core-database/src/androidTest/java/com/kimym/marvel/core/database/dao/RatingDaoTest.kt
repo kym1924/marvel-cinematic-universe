@@ -33,7 +33,7 @@ class RatingDaoTest {
 
     @Test
     fun ratingDao_get_rating() = runTest {
-        val rating = ratingEntity(0, 4.0f)
+        val rating = RatingEntity(0, 4.0f)
         ratingDao.insertRating(rating)
 
         assertEquals(rating.rating, ratingDao.getRating(rating.id).first())
@@ -41,7 +41,7 @@ class RatingDaoTest {
 
     @Test
     fun ratingDao_update_rating() = runTest {
-        val rating = ratingEntity(0, 4.0f)
+        val rating = RatingEntity(0, 4.0f)
         ratingDao.insertRating(rating)
 
         val updated = rating.copy(rating = 5.0f)
@@ -53,9 +53,9 @@ class RatingDaoTest {
     @Test
     fun ratingDao_delete_rating() = runTest {
         val ratings = listOf(
-            ratingEntity(0, 4.0f),
-            ratingEntity(2, 3.0f),
-            ratingEntity(6, 5.0f)
+            RatingEntity(0, 4.0f),
+            RatingEntity(2, 3.0f),
+            RatingEntity(6, 5.0f)
         ).onEach { entity ->
             ratingDao.insertRating(entity)
         }
@@ -64,15 +64,5 @@ class RatingDaoTest {
         ratingDao.deleteRating(rating.id)
 
         assertEquals(0.0f, ratingDao.getRating(rating.id).first())
-    }
-
-    private fun ratingEntity(
-        id: Int,
-        rating: Float
-    ): RatingEntity {
-        return RatingEntity(
-            id = id,
-            rating = rating
-        )
     }
 }
