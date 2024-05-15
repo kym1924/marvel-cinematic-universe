@@ -47,9 +47,9 @@ class MovieAndRatingDaoTest {
         movieDao.insertMovies(movies)
 
         val ratings = listOf(
-            ratingEntity(0, 4.0f),
-            ratingEntity(2, 3.0f),
-            ratingEntity(6, 5.0f)
+            RatingEntity(0, 4.0f),
+            RatingEntity(2, 3.0f),
+            RatingEntity(6, 5.0f)
         ).onEach { entity ->
             ratingDao.insertRating(entity)
         }
@@ -84,16 +84,6 @@ class MovieAndRatingDaoTest {
             release = "",
             runningTime = 0,
             image = ""
-        )
-    }
-
-    private fun ratingEntity(
-        id: Int,
-        rating: Float
-    ): RatingEntity {
-        return RatingEntity(
-            id = id,
-            rating = rating
         )
     }
 }
