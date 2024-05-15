@@ -29,7 +29,7 @@ timber = "5.0.1"
 junit = "4.13.2"
 testJunit = "1.1.5"
 testEspresso = "3.5.1"
-testCoroutines = "1.8.0"
+testCoroutines = "1.8.1"
 
 [libraries]
 androidx-core = { module = "androidx.core:core-ktx", version.ref = "androidxCore" }
