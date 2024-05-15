@@ -1,7 +1,7 @@
 [versions]
 gradlePlugin = "8.3.2"
 kotlin = "1.9.24"
-kotlinKsp = "1.9.23-1.0.20"
+kotlinKsp = "1.9.24-1.0.20"
 ktlint = "11.6.1"
 
 androidxCore = "1.13.1"
