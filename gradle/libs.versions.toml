@@ -17,7 +17,7 @@ androidxHiltWorkManager = "1.2.0"
 androidxJankStats = "1.0.0-beta01"
 androidxSplash = "1.0.1"
 
-kotlinCoroutines = "1.8.0"
+kotlinCoroutines = "1.8.1"
 
 gson = "2.10.1"
 hilt = "2.51.1"
