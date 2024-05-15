@@ -12,6 +12,8 @@ android {
 
     defaultConfig {
         minSdk config.minSdk
+
+        testInstrumentationRunner "com.kimym.marvel.core.test.MarvelTestRunner"
     }
 
     compileOptions {
@@ -25,8 +27,13 @@ android {
 }
 
 dependencies {
+    implementation(project(":core-test"))
+
     implementation(libs.androidx.datastore.preferences)
 
     implementation(libs.hilt)
     ksp(libs.hilt.compiler)
+
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.coroutines.test)
 }
