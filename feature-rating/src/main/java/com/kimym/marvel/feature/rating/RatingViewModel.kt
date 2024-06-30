@@ -17,5 +17,5 @@ class RatingViewModel @Inject constructor(
     private val id: Int = savedStateHandle["id"] ?: 0
 
     val title = movieRepository.getMovieTitle(id)
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(), "")
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000L), "")
 }

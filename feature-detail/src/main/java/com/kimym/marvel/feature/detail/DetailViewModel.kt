@@ -20,10 +20,10 @@ class DetailViewModel @Inject constructor(
     private val id: Int = savedStateHandle["id"] ?: 0
 
     val movie = movieRepository.getMovie(id)
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(), null)
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000L), null)
 
     val rating = ratingRepository.getRating(id)
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(), 0f)
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000L), 0f)
 
     fun insertRating(rating: Float) {
         viewModelScope.launch {

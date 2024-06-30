@@ -13,5 +13,5 @@ class FavoriteViewModel @Inject constructor(
     repository: MovieRepository
 ) : ViewModel() {
     val favorites = repository.getMovieAndRatings()
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(), emptyList())
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000L), emptyList())
 }

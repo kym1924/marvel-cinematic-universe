@@ -13,5 +13,5 @@ class MovieViewModel @Inject constructor(
     repository: MovieRepository
 ) : ViewModel() {
     val movies = repository.getMovies()
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(), emptyList())
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000L), emptyList())
 }
