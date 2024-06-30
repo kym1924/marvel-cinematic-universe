@@ -28,7 +28,7 @@ timber = "5.0.1"
 
 junit = "4.13.2"
 testJunit = "1.2.1"
-testEspresso = "3.5.1"
+testEspresso = "3.6.1"
 testCoroutines = "1.8.1"
 
 [libraries]
