@@ -13,13 +13,23 @@
     <!-- dialog_rating -->
     <string name="rating_title">Please enter your star rating for</string>
 
+    <!-- dialog_setting -->
+    <string name="setting_appearance">Appearance</string>
+    <string name="setting_light_mode">Light Mode</string>
+    <string name="setting_dark_mode">Dark Mode</string>
+    <string name="setting_follow_system">Follow System</string>
+
     <!-- content_description -->
     <string name="image_content_description">Image of Marvel Movie</string>
     <string name="rating_content_description">Star rating for the movie</string>
     <string name="floating_action_button_content_description">Navigate RatingDialog FloatingActionButton</string>
+    <string name="setting_content_description">Navigate SettingDialog</string>
 
     <!-- menu_bottom_navigation -->
     <string name="movie">Movie</string>
     <string name="favorite">Favorite</string>
+
+    <!-- menu_setting -->
+    <string name="setting">Setting</string>
 
 </resources>

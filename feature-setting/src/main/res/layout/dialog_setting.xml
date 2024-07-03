@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.kimym.marvel.domain.model.Appearance" />
+
+        <variable
+            name="vm"
+            type="com.kimym.marvel.feature.setting.SettingViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_setting_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/setting_appearance"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/radioGroup"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginVertical="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent "
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_setting_title">
+
+            <RadioButton
+                android:id="@+id/rb_setting_light"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:checked="@{vm.appearance == Appearance.LIGHT}"
+                android:onClick="@{() -> vm.setAppearance(Appearance.LIGHT)}"
+                android:text="@string/setting_light_mode"
+                app:buttonTint="@color/red_900" />
+
+            <RadioButton
+                android:id="@+id/rb_setting_dark"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:checked="@{vm.appearance == Appearance.DARK}"
+                android:onClick="@{() -> vm.setAppearance(Appearance.DARK)}"
+                android:text="@string/setting_dark_mode"
+                app:buttonTint="@color/red_900" />
+
+            <RadioButton
+                android:id="@+id/rb_setting_system"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:checked="@{vm.appearance == Appearance.FOLLOW_SYSTEM}"
+                android:onClick="@{() -> vm.setAppearance(Appearance.FOLLOW_SYSTEM)}"
+                android:text="@string/setting_follow_system"
+                app:buttonTint="@color/red_900" />
+
+        </RadioGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
