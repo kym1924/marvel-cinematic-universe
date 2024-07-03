@@ -1,7 +1,5 @@
 package com.kimym.marvel
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -18,6 +16,7 @@ import com.kimym.marvel.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 import com.kimym.marvel.feature.favorite.R as favoriteR
 import com.kimym.marvel.feature.movie.R as movieR
+import com.kimym.marvel.feature.setting.R as settingR
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -56,40 +55,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setBottomNavigationVisibility(destinationId: Int) {
-        when (destinationId) {
-            movieR.id.movieFragment, favoriteR.id.favoriteFragment -> setBottomNavigationShowAnimation()
-            else -> setBottomNavigationHideAnimation()
+        binding.bottomNavigation.visibility = when (destinationId) {
+            movieR.id.movieFragment, favoriteR.id.favoriteFragment, settingR.id.settingDialog -> View.VISIBLE
+            else -> View.GONE
         }
     }
 
     private fun putStateInMetricsStateHolder(destinationLabel: String) {
         binding.root.getMetricsStateHolder().putState(CURRENT_DESTINATION, destinationLabel)
-    }
-
-    private fun setBottomNavigationShowAnimation() {
-        binding.bottomNavigation.takeIf { it.visibility == View.GONE }?.let {
-            it.animate().alpha(1f).setListener(
-                object : AnimatorListenerAdapter() {
-                    override fun onAnimationStart(animation: Animator) {
-                        super.onAnimationStart(animation)
-                        it.visibility = View.VISIBLE
-                    }
-                }
-            )
-        }
-    }
-
-    private fun setBottomNavigationHideAnimation() {
-        binding.bottomNavigation.takeIf { it.visibility == View.VISIBLE }?.let {
-            it.animate().alpha(0f).setListener(
-                object : AnimatorListenerAdapter() {
-                    override fun onAnimationEnd(animation: Animator) {
-                        super.onAnimationEnd(animation)
-                        it.visibility = View.GONE
-                    }
-                }
-            )
-        }
     }
 
     private fun initDecorFitsSystemWindows() {
