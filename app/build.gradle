@@ -58,6 +58,7 @@ dependencies {
     implementation(project(":feature-favorite"))
     implementation(project(":feature-movie"))
     implementation(project(":feature-rating"))
+    implementation(project(":feature-setting"))
 
     implementation(libs.androidx.core)
     implementation(libs.androidx.app.compat)
