@@ -2,6 +2,7 @@
 gradlePlugin = "8.5.1"
 kotlin = "2.0.0"
 kotlinKsp = "2.0.0-1.0.23"
+kotlinCoroutines = "1.8.1"
 ktlint = "11.6.1"
 
 androidxCore = "1.13.1"
@@ -17,8 +18,6 @@ androidxHiltWorkManager = "1.2.0"
 androidxJankStats = "1.0.0-beta01"
 androidxSplash = "1.0.1"
 
-kotlinCoroutines = "1.8.1"
-
 gson = "2.11.0"
 hilt = "2.51.1"
 material = "1.12.0"
@@ -29,7 +28,6 @@ timber = "5.0.1"
 junit = "4.13.2"
 testJunit = "1.2.1"
 testEspresso = "3.6.1"
-testCoroutines = "1.8.1"
 
 [libraries]
 androidx-core = { module = "androidx.core:core-ktx", version.ref = "androidxCore" }
@@ -67,7 +65,7 @@ androidx-espresso-contrib = { module = "androidx.test.espresso:espresso-contrib"
 androidx-navigation-test = { module = "androidx.navigation:navigation-testing", version.ref = "androidxNavigation" }
 androidx-room-test = { module = "androidx.room:room-testing", version.ref = "androidxRoom" }
 androidx-workmanager-test = { module = "androidx.work:work-testing", version.ref = "androidxWorkManager" }
-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "testCoroutines" }
+coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinCoroutines" }
 hilt-test = { module = "com.google.dagger:hilt-android-testing", version.ref = "hilt" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
 
