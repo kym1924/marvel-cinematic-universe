@@ -1,5 +1,5 @@
 [versions]
-gradlePlugin = "8.5.1"
+gradlePlugin = "8.5.2"
 kotlin = "2.0.0"
 kotlinKsp = "2.0.0-1.0.23"
 kotlinCoroutines = "1.8.1"
