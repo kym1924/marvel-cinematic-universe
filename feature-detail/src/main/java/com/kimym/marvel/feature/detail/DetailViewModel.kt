@@ -25,17 +25,9 @@ class DetailViewModel @Inject constructor(
     val rating = ratingRepository.getRating(id)
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000L), 0f)
 
-    fun insertRating(rating: Float) {
+    fun upsertRating(rating: Float) {
         viewModelScope.launch {
-            ratingRepository.insertRating(id, rating)
-        }
-    }
-
-    fun changeRating(value: Float) {
-        viewModelScope.launch {
-            if (value != rating.value) {
-                ratingRepository.updateRating(id, value)
-            }
+            ratingRepository.upsertRating(id, rating)
         }
     }
 }

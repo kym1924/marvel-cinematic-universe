@@ -63,13 +63,13 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(R.layout.fragment_det
 
     private fun initRatingBarChangeListener() {
         binding.ratingDetail.setOnRatingBarChangeListener { _, value, _ ->
-            viewModel.changeRating(value)
+            viewModel.upsertRating(value)
         }
     }
 
     private fun initFragmentResultListener() {
         setFragmentResultListener(FragmentResultKey.KEY) { _, bundle ->
-            viewModel.insertRating(bundle.getFloat(FragmentResultKey.KEY))
+            viewModel.upsertRating(bundle.getFloat(FragmentResultKey.KEY))
             Snackbar.make(binding.root, "Star ratings are saved.", Snackbar.LENGTH_SHORT).show()
         }
     }
