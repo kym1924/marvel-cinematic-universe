@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kimym.marvel.domain.repository.MovieRepository
 import com.kimym.marvel.domain.repository.RatingRepository
+import com.kimym.marvel.domain.usecase.GetRatingUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
@@ -13,6 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailViewModel @Inject constructor(
+    getRatingUseCase: GetRatingUseCase,
     movieRepository: MovieRepository,
     private val ratingRepository: RatingRepository,
     savedStateHandle: SavedStateHandle
@@ -22,7 +24,7 @@ class DetailViewModel @Inject constructor(
     val movie = movieRepository.getMovie(id)
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000L), null)
 
-    val rating = ratingRepository.getRating(id)
+    val rating = getRatingUseCase(id)
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000L), 0f)
 
     fun upsertRating(rating: Float) {
