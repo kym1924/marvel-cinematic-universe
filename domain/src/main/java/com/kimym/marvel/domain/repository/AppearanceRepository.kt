@@ -4,7 +4,7 @@ import com.kimym.marvel.domain.model.Appearance
 import kotlinx.coroutines.flow.Flow
 
 interface AppearanceRepository {
-    fun getAppearance(): Flow<Appearance>
+    val appearance: Flow<Appearance>
 
-    suspend fun setAppearance(appearance: Appearance)
+    suspend fun updateAppearance(appearance: Appearance)
 }

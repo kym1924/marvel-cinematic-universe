@@ -10,17 +10,16 @@ import javax.inject.Inject
 class AppearanceRepositoryImpl @Inject constructor(
     private val datastore: MarvelDatastore
 ) : AppearanceRepository {
-    override suspend fun setAppearance(appearance: Appearance) {
-        datastore.setAppearance(appearance.value)
-    }
-
-    override fun getAppearance(): Flow<Appearance> {
-        return datastore.getAppearance().map { value ->
+    override val appearance: Flow<Appearance> =
+        datastore.getAppearance().map { value ->
             when (value) {
                 0 -> Appearance.LIGHT
                 1 -> Appearance.DARK
                 else -> Appearance.FOLLOW_SYSTEM
             }
         }
+
+    override suspend fun updateAppearance(appearance: Appearance) {
+        datastore.setAppearance(appearance.value)
     }
 }
