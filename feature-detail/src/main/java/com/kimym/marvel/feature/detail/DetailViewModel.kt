@@ -4,8 +4,8 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kimym.marvel.domain.repository.MovieRepository
-import com.kimym.marvel.domain.repository.RatingRepository
 import com.kimym.marvel.domain.usecase.GetRatingUseCase
+import com.kimym.marvel.domain.usecase.UpsertRatingUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
@@ -16,8 +16,8 @@ import javax.inject.Inject
 class DetailViewModel @Inject constructor(
     getRatingUseCase: GetRatingUseCase,
     movieRepository: MovieRepository,
-    private val ratingRepository: RatingRepository,
-    savedStateHandle: SavedStateHandle
+    savedStateHandle: SavedStateHandle,
+    private val upsertRatingUseCase: dagger.Lazy<UpsertRatingUseCase>
 ) : ViewModel() {
     private val id: Int = savedStateHandle["id"] ?: 0
 
@@ -29,7 +29,7 @@ class DetailViewModel @Inject constructor(
 
     fun upsertRating(rating: Float) {
         viewModelScope.launch {
-            ratingRepository.upsertRating(id, rating)
+            upsertRatingUseCase.get().invoke(id, rating)
         }
     }
 }
