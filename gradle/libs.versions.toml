@@ -20,6 +20,7 @@ androidxSplash = "1.0.1"
 
 gson = "2.11.0"
 hilt = "2.52"
+javax-inject = "1"
 material = "1.12.0"
 
 glide = "4.16.0"
@@ -52,6 +53,7 @@ kotlin-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", 
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 hilt = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
+javax-inject = { module = "javax.inject:javax.inject", version.ref = "javax-inject"}
 material = { module = "com.google.android.material:material", version.ref = "material" }
 
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
