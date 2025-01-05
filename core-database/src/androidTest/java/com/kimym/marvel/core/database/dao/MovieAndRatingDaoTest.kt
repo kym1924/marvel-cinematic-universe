@@ -51,7 +51,7 @@ class MovieAndRatingDaoTest {
             RatingEntity(2, 3.0f),
             RatingEntity(6, 5.0f)
         ).onEach { entity ->
-            ratingDao.insertRating(entity)
+            ratingDao.upsertRating(entity)
         }
 
         val movieAndRatings = movieAndRatingDao.getMovieAndRatings().first()
