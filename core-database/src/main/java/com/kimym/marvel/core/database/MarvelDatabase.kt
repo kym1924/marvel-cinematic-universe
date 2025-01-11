@@ -12,7 +12,7 @@ import com.kimym.marvel.core.database.entity.RatingEntity
 @Database(
     entities = [MovieEntity::class, RatingEntity::class],
     views = [MovieAndRatingView::class],
-    version = 2
+    version = 3
 )
 abstract class MarvelDatabase : RoomDatabase() {
     abstract fun movieDao(): MovieDao

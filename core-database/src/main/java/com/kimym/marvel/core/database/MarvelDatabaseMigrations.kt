@@ -10,4 +10,11 @@ object MarvelDatabaseMigrations {
             db.execSQL("CREATE VIEW `MovieAndRating` AS " + MovieAndRatingView.QUERY)
         }
     }
+
+    val MIGRATION_2_3 = object : Migration(2, 3) {
+        override fun migrate(db: SupportSQLiteDatabase) {
+            db.execSQL("DROP VIEW IF EXISTS `MovieAndRating`")
+            db.execSQL("CREATE VIEW `MovieAndRating` AS " + MovieAndRatingView.QUERY)
+        }
+    }
 }

@@ -18,6 +18,6 @@ data class MovieAndRatingView(
     companion object {
         const val QUERY = "SELECT e.id, e.title, e.image, r.rating, r.created_at " +
             "FROM Movie AS e, Rating AS r " +
-            "WHERE e.id = r.id"
+            "WHERE e.id = r.id AND r.rating != 0"
     }
 }

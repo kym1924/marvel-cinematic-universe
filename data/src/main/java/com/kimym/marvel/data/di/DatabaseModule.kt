@@ -38,7 +38,8 @@ object DatabaseModule {
                 }
             }
         ).addMigrations(
-            MarvelDatabaseMigrations.MIGRATION_1_2
+            MarvelDatabaseMigrations.MIGRATION_1_2,
+            MarvelDatabaseMigrations.MIGRATION_2_3
         ).build()
     }
 
