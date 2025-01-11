@@ -27,9 +27,9 @@ class DetailViewModel @Inject constructor(
     val rating = getRatingUseCase(id)
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000L), 0f)
 
-    fun upsertRating(rating: Float) {
+    fun upsertRating(newRating: Float) {
         viewModelScope.launch {
-            upsertRatingUseCase.get().invoke(id, rating)
+            if (newRating != rating.value) upsertRatingUseCase.get().invoke(id, newRating)
         }
     }
 }
