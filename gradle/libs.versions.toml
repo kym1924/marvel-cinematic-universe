@@ -2,7 +2,7 @@
 gradlePlugin = "8.5.2"
 kotlin = "2.1.0"
 kotlinKsp = "2.1.0-1.0.29"
-kotlinCoroutines = "1.10.1"
+kotlinCoroutines = "1.10.2"
 ktlint = "11.6.1"
 
 androidxCore = "1.13.1"
