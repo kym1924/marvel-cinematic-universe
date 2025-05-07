@@ -5,7 +5,7 @@ kotlinKsp = "2.1.20-2.0.1"
 kotlinCoroutines = "1.10.2"
 ktlint = "11.6.1"
 
-androidxCore = "1.13.1"
+androidxCore = "1.16.0"
 androidxAppcompat = "1.7.0"
 androidxAppStartup = "1.2.0"
 androidxConstraintLayout = "2.2.1"
