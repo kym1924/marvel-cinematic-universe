@@ -15,7 +15,7 @@ androidxNavigation = "2.8.9"
 androidxRoom = "2.7.1"
 androidxWorkManager = "2.9.1"
 androidxHiltWorkManager = "1.2.0"
-androidxJankStats = "1.0.0-beta01"
+androidxJankStats = "1.0.0-beta02"
 androidxSplash = "1.0.1"
 
 gson = "2.13.1"
