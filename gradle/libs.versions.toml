@@ -1,6 +1,6 @@
 [versions]
 gradlePlugin = "8.9.2"
-kotlin = "2.1.20"
+kotlin = "2.1.21"
 kotlinKsp = "2.1.20-2.0.1"
 kotlinCoroutines = "1.10.2"
 ktlint = "11.6.1"
